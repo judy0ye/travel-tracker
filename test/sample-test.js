@@ -12,8 +12,6 @@ describe('See if the tests are running', function() {
   });
 });
 
-
-
 describe('all trips', function() {
   let travelerData, tripsData;
 
@@ -63,9 +61,8 @@ describe('all trips', function() {
     }
   });
   it('should return all trips', function() {
-    const travelerId = travelerData.travelers.find(traveler => traveler.id = 3)
-    const allTrips = getAllTrips(travelerId.id, tripsData)
-    
+    const allTrips = getAllTrips(3, tripsData)
+
     expect(allTrips).to.deep.equal(
       [
         {
@@ -90,5 +87,9 @@ describe('all trips', function() {
         }
       ]
     )
+  });
+  it('should return undefined if no data is passed in', function() {
+    const allTrips = getAllTrips()
+    expect(allTrips).to.be.undefined
   })
 })
