@@ -4,6 +4,10 @@ import {
   fetchFromEndPoints
 } from './apiCalls'
 
+import {
+  getAllTrips
+} from '../src/utils'
+
 // An example of how you tell webpack to use a CSS (SCSS) file
 import './css/styles.css';
 
