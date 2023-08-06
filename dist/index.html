@@ -9,30 +9,11 @@
 <body>
   <header>
     <div class="header-container">
-      <img src="./images/turing-logo.png" alt="turing logo" width="100">
-      <section class="login-section ">
-        <!-- <div class="form-container"> -->
-          <form class="login" id="loginForm">
-            <div>
-              <label for="username">Enter Username</label>
-              <input placeholder="username" name="username" id="username"/>
-            </div>
-            <div>
-              <label for="password">Enter Password</label>
-              <input placeholder="password" name="password" id="password"/>
-            </div>
-            <div>
-              <input type="submit" value="LOG IN" class="submit">
-            </div>
-          </form>
-        <!-- </div>   -->
+      <section>
+        <img src="./images/turing-logo.png" alt="turing logo" width="100">
+        <h1 id="headerTitle">The World Beyond Agency</h1>
       </section>
-    </div>
-  
-  </header>
-  <main>
-    <!-- <section class="login-section hidden">
-      <div class="form-container">
+      <section class="login-section ">
         <form class="login" id="loginForm">
           <div>
             <label for="username">Enter Username</label>
@@ -46,18 +27,44 @@
             <input type="submit" value="LOG IN" class="submit">
           </div>
         </form>
-      </div>  
-    </section> -->
-    <section class="dashboard " >
-      <div class="left-side">
-        <h2>Upcoming/Pending:</h2>
-        <h2>Past/Approved:</h2>
-      </div>
-      <div class="right-side">
-        <h2>Cost:</h2>
-        <h2>Input:</h2>
-      </div>
-    </section>
+      </section>
+    </div>
+  </header>
+  <main>
+    <div class="dashboard " >
+      <section class="left-side">
+        <div class="trip-info">
+          <h2>Upcoming/Pending:</h2>
+          <section class="pending-trips">
+            <!-- upcoming/pending trips will populate here -->
+          </section>
+          <h2>Past/Approved:</h2>
+          <section class="past-trips">
+            <!-- past/approved trips will populate here -->
+          </section>
+        </div>
+        <div class="yearly-expense">
+          <h2>Yearly Expense</h2>
+          <section>
+            <!-- yearly expense will populate here -->
+          </section>
+        </div>
+      </section>
+      <section class="right-side">
+        <div class="traveler-inputs">
+          <h2>Inputs Here</h2>
+          <form>
+
+          </form>
+        </div>
+        <div class="cost-estimation">
+          <h2>Cost Estimation</h2>
+          <section>
+            <!-- cost estimation of trip will populate here -->
+          </section>
+        </div>
+      </section>
+    </div>
   </main>
  
   

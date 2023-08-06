@@ -3,62 +3,21 @@ body {
   background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%);
 }
 
+/* header */
 header {
   background-color: rgb(43 43 43);
   width: 100vw;
   height: 22vh;
- 
 }
 
-/* .login-section {
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 1fr;
-  grid-template-areas: "login";
-}
-
-.login{
-  display: flex;
-  justify-content: center;
-} */
-
-/* login panel */
-/* .login-section {
-  display: grid;
-  grid-template-columns:  1fr;
-  grid-template-rows: 1fr;
-  grid-template-areas: "form-container";
-}
-
-.form-container {
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-}
-
-.login {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  padding: 1em;
-  border: 3px solid #3333
-}
-
-#username,
-#password {
-  margin: 1em
-}
-
-.submit {
-  height: 2em;
-  width: 10em
-} */
 .header-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr;
+}
+
+#headerTitle{ 
+  color: white
 }
 .login-section {
   display: flex;
@@ -66,12 +25,6 @@ header {
   color: white
 }
 
-/* .form-container {
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-} */
 
 .login {
   display: flex;
@@ -94,9 +47,14 @@ header {
 }
 
 /* dashboard panel */
+main {
+  background-image: url(../images/emmanuel-denier-YiXsjwJKXmo-unsplash.jpg);
+  background-size: cover;
+  
+}
 
 .dashboard {
-margin-top: 20px;
+color:antiquewhite;
 display: grid;
 height: 100vh;
 width: 100vw;
@@ -110,44 +68,44 @@ grid-template-areas:
 .left-side {
 grid-area: left-side;
 margin-left: 2em;
-border: 3px solid pink;
+border: 5px solid blue;
 display: grid;
 grid-template-columns: 1fr;
 grid-template-rows: 1fr 1fr;
 grid-template-areas:
-"upcoming-trips"
-"past-trips";
+"trip-info"
+"yearly-expense";
 }
 
 .right-side {
 grid-area: right-side;
 margin-right: 2em;
-border: 3px solid white;
+border: 5px solid grey;
 display: grid;
 grid-template-columns: 1fr;
-grid-template-rows: 10% 90%;
+grid-template-rows: 1.4fr .6fr;
 grid-template-areas:
-"annual-cost"
-"form";
+"traveler-inputs"
+"cost-estimation";
 }
 
-.annual-cost {
-grid-area: annual-cost;
-border: 3px solid black;
+.traveler-inputs {
+grid-area: traveler-inputs;
+border: 3px solid rgb(228, 13, 13);
 }
 
-.form {
-grid-area: form;
+.cost-estimation {
+grid-area: cost-estimation;
 border: 3px solid yellow
 }
 
-.past-trips {
-grid-area: past-trips;
+.trip-info {
+grid-area: trip-info;
 border: 3px solid pink
 }
 
-.upcoming-trips {
-grid-area: upcoming-trips;
+.yearly-expense {
+grid-area: yearly-expense;
 border: 3px solid greenyellow
 }
 
