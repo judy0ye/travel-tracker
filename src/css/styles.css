@@ -1,6 +1,61 @@
 body {
+  margin: 0;
   background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%);
 }
+
+header {
+  background-color: rgb(43 43 43);
+  width: 100vw;
+  height: 22vh;
+ 
+}
+
+/* .login-section {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  grid-template-areas: "login";
+}
+
+.login{
+  display: flex;
+  justify-content: center;
+} */
+
+.login-section {
+  display: grid;
+  grid-template-columns:  1fr;
+  grid-template-rows: 1fr;
+  grid-template-areas: "form-container";
+}
+
+.form-container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+}
+
+.login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 1em;
+  border: 3px solid #3333
+}
+
+#username,
+#password {
+  margin: 1em
+}
+
+.submit {
+  height: 2em;
+  width: 10em
+}
+
+
 
 .hidden {
   display: none!important;
