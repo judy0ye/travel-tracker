@@ -6,6 +6,12 @@ const getAllTrips = (travelerId, tripsData) => {
   return tripsData.trips.filter(trip => trip.userID === travelerId)
 }
 
+const getTripsByStatus = (travelerId, tripsData, status) => {
+  const traverlerTrips = tripsData.trips.filter(trip => trip.userID === travelerId)
+
+  return traverlerTrips.filter(travelerTrip => travelerTrip.status === status)
+}
+
 const getYearlyExpense = (travelerId, year, tripsData, destinationData) => {
   const tripsInTheSameYear = tripsData.trips
     .filter(trip => trip.userID === travelerId)
@@ -35,6 +41,7 @@ const getYearlyExpense = (travelerId, year, tripsData, destinationData) => {
 
 export {
   getAllTrips,
+  getTripsByStatus,
   getYearlyExpense,
   getTravelerById
 }

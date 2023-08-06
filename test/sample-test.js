@@ -3,6 +3,7 @@ const expect = chai.expect;
 
 import {
   getAllTrips,
+  getTripsByStatus,
   getYearlyExpense,
   getTravelerById
 } from '../src/utils'
@@ -99,6 +100,33 @@ describe('all trips for specific traveler', function() {
       ]
     )
   });
+  it('should return trips by status', function() {
+    const tripStatus = getTripsByStatus(3, tripsData, 'approved')
+    expect(tripStatus).to.deep.equal(
+      [
+        {
+          "id": 3,
+          "userID": 3,
+          "destinationID": 22,
+          "travelers": 4,
+          "date": "2022/05/22",
+          "duration": 17,
+          "status": "approved",
+          "suggestedActivities": []
+        },
+        {
+          "id": 41,
+          "userID": 3,
+          "destinationID": 25,
+          "travelers": 3,
+          "date": "2020/08/30",
+          "duration": 11,
+          "status": "approved",
+          "suggestedActivities": []
+        }
+      ]
+    )
+  })
   it.skip('should return undefined if no data is passed in', function() {
     const allTrips = getAllTrips()
     expect(allTrips).to.be.undefined

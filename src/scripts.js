@@ -12,7 +12,8 @@ import {
 } from './domUpdates'
 
 import {
-  getAllTrips
+  getAllTrips,
+  getTripsByStatus
 } from '../src/utils'
 
 // An example of how you tell webpack to use a CSS (SCSS) file
@@ -31,6 +32,7 @@ window.addEventListener('load', function () {
       console.log('travelers: ', dataFromEndpoints.travelers);
       console.log('trips: ', dataFromEndpoints.trips)
       console.log('destinations: ', dataFromEndpoints.destinations)
+      console.log(getTripsByStatus(5, dataFromEndpoints.trips, 'approved'))
     })
 })
 
