@@ -15,7 +15,7 @@ const fetchFromEndPoints = endPointName => {
       return res.json()
     })
     .then(data => {
-      dataFromEndpoints[endPointName] = data[endPointName]
+      dataFromEndpoints[endPointName] = data
     })
     .catch(error => console.error('Request failed from catch', error))
 }

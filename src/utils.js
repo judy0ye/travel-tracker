@@ -1,8 +1,8 @@
-const getAllTrips = (travelerId, tripsData) => {
-  if (!travelerId) {
-    return undefined
-  }
+const getTravelerById = (travelerId, travelersData) => {
+  return travelersData.travelers.find(traveler => traveler.id === travelerId)
+}
 
+const getAllTrips = (travelerId, tripsData) => {
   return tripsData.trips.filter(trip => trip.userID === travelerId)
 }
 
@@ -24,6 +24,8 @@ const getYearlyExpense = (travelerId, year, tripsData, destinationData) => {
   }, 0)
 }
 
+
+
 // Using "today" as the current date is ok - all past trips will be prior to today, 
 // and your user will be booking trips for the future
 // Trips should be sorted between past/upcoming or past/upcoming/pending - if there 
@@ -33,5 +35,6 @@ const getYearlyExpense = (travelerId, year, tripsData, destinationData) => {
 
 export {
   getAllTrips,
-  getYearlyExpense
+  getYearlyExpense,
+  getTravelerById
 }
