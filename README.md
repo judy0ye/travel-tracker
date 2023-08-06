@@ -13,7 +13,11 @@ That's right, _clone_ not fork. You will use this repo multiple times, but you c
 Now try to commit something (just add a line in the README) and push it up to your new repo. If everything is setup correctly, you should see the changes on GitHub.
 
 Testing: Is everything setup correctly?
-
+Yoda: Photo by <a href="https://unsplash.com/@sounce_cosplay?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Emmanuel Denier</a> on <a href="https://unsplash.com/photos/YiXsjwJKXmo?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+  
+whtie storm trooper:
+Photo by <a href="https://unsplash.com/@sushioutlaw?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Brian McGowan</a> on <a href="https://unsplash.com/photos/itRfuFf1gdY?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+  
 ## Setup
 
 After one person has gone through the steps of cloning down this repo and editing the remote, everyone should clone down the repo.

@@ -22,7 +22,8 @@ header {
   justify-content: center;
 } */
 
-.login-section {
+/* login panel */
+/* .login-section {
   display: grid;
   grid-template-columns:  1fr;
   grid-template-rows: 1fr;
@@ -53,9 +54,102 @@ header {
 .submit {
   height: 2em;
   width: 10em
+} */
+.header-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+}
+.login-section {
+  display: flex;
+  justify-content: flex-end;
+  color: white
 }
 
+/* .form-container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+} */
 
+.login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 1em;
+  border: 3px solid white
+}
+
+#username,
+#password,
+.submit {
+  margin: 1em;
+}
+
+.submit {
+  height: 2em;
+  width: 15em
+}
+
+/* dashboard panel */
+
+.dashboard {
+margin-top: 20px;
+display: grid;
+height: 100vh;
+width: 100vw;
+grid-template-columns: 1fr 1fr;
+grid-template-rows: 1fr;
+column-gap: 1em;
+grid-template-areas:
+"left-side right-side";
+}
+
+.left-side {
+grid-area: left-side;
+margin-left: 2em;
+border: 3px solid pink;
+display: grid;
+grid-template-columns: 1fr;
+grid-template-rows: 1fr 1fr;
+grid-template-areas:
+"upcoming-trips"
+"past-trips";
+}
+
+.right-side {
+grid-area: right-side;
+margin-right: 2em;
+border: 3px solid white;
+display: grid;
+grid-template-columns: 1fr;
+grid-template-rows: 10% 90%;
+grid-template-areas:
+"annual-cost"
+"form";
+}
+
+.annual-cost {
+grid-area: annual-cost;
+border: 3px solid black;
+}
+
+.form {
+grid-area: form;
+border: 3px solid yellow
+}
+
+.past-trips {
+grid-area: past-trips;
+border: 3px solid pink
+}
+
+.upcoming-trips {
+grid-area: upcoming-trips;
+border: 3px solid greenyellow
+}
 
 .hidden {
   display: none!important;
