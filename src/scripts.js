@@ -7,6 +7,11 @@ import {
 } from './apiCalls'
 
 import {
+  loginForm,
+  login
+} from './domUpdates'
+
+import {
   getAllTrips
 } from '../src/utils'
 
@@ -19,7 +24,7 @@ import './images/turing-logo.png'
 
 console.log('This is the JavaScript entry file - your code begins here.');
 
-
+// --------- event listeners
 window.addEventListener('load', function () {
   Promise.all(fetchPromises)
     .then(() => {
@@ -28,5 +33,7 @@ window.addEventListener('load', function () {
       console.log('destinations: ', dataFromEndpoints.destinations)
     })
 })
+
+loginForm.addEventListener('submit', login)
 
 
