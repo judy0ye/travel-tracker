@@ -24,6 +24,7 @@ const welcomeMessage = document.querySelector('.welcome-message')
 const dashboard = document.querySelector('.dashboard')
 const expenseThisYear = document.querySelector('.expense-this-year')
 const costOfTrip = document.querySelector('.trip-cost-estimation')
+const destinationDropDown = document.querySelector('#destination')
 
 // --------- functions invoked after event listeners implementation
 const login = (e) => {
@@ -40,11 +41,22 @@ const login = (e) => {
     currentTraveler = traveler
     loginForm.classList.add('hidden')
   }
- 
+  
+  // getDestinationList()
   displayWelcomeMessage()
   displayTravelerTrips()
   displayYearlyExpense()
 }
+
+const getDestinationList = () =>  {
+  destinationDropDown.innerHTML = '<option value="" disabled>Select a destination</option>';
+  dataFromEndpoints.destinations.destinations.forEach(destination => {
+    destinationDropDown.innerHTML += `<option>${destination.destination}</option>`;
+  });
+
+  destinationDropDown.selectedIndex = 0;
+};
+
 
 // --------- functions for manipuating the DOM
 const displayWelcomeMessage = () => {
@@ -85,7 +97,7 @@ const displayCostOfTrip = (e) => {
     calendar: formData.get('calendar'), 
     duration: formData.get('duration'),
     traveler_numbers: formData.get('traveler_numbers'),
-    destination: formData.get('destination'),  
+    // destination: formData.get('destination'),  
   };
 
   costOfTrip.innerHTML = `
@@ -103,5 +115,6 @@ export {
   loginForm,
   tripSubmissionForm,
   login,
-  displayCostOfTrip
+  displayCostOfTrip,
+  getDestinationList
 }

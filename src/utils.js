@@ -14,6 +14,24 @@ const getAllDestination = (travelerId, tripsData, destinationsData) => {
   })
 }
 
+// const getCostForTrip = (travelerId, year, tripsData, destinationData) => {
+//   const tripsInTheSameYear = tripsData.trips
+//     .filter(trip => trip.userID === travelerId)
+//     .filter(trip => trip.date.split('/')[0] === year)
+
+//   return destinationData.destinations.reduce((total, destination) => {
+//     tripsInTheSameYear.forEach(trip => {
+//       if (trip.destinationID === destination.id) {
+//         const totalFlightCostForTrip = trip.travelers * destination.estimatedFlightCostPerPerson;
+//         const totalLodgingCostForTrip = destination.estimatedLodgingCostPerDay * trip.duration
+//         const totalCostOfFlightAndLodging = totalLodgingCostForTrip + totalFlightCostForTrip
+//         const travelAgentFee = totalCostOfFlightAndLodging * .10
+//         total += totalCostOfFlightAndLodging + travelAgentFee
+//       }
+//     })
+//     return total
+//   }, 0)
+// }
 const getYearlyExpense = (travelerId, year, tripsData, destinationData) => {
   const tripsInTheSameYear = tripsData.trips
     .filter(trip => trip.userID === travelerId)
