@@ -6,6 +6,14 @@ const getAllTrips = (travelerId, tripsData) => {
   return tripsData.trips.filter(trip => trip.userID === travelerId)
 }
 
+const getAllDestination = (travelerId, tripsData, destinationsData) => {
+  const travelerTrips = tripsData.trips.filter(trip => trip.userID === travelerId)
+
+  return destinationsData.destinations.filter(destination => {
+    return travelerTrips.map(trip => trip.destinationID).includes(destination.id)
+  })
+
+}
 const getYearlyExpense = (travelerId, year, tripsData, destinationData) => {
   const tripsInTheSameYear = tripsData.trips
     .filter(trip => trip.userID === travelerId)
@@ -25,16 +33,10 @@ const getYearlyExpense = (travelerId, year, tripsData, destinationData) => {
 }
 
 
-
-// Using "today" as the current date is ok - all past trips will be prior to today, 
-// and your user will be booking trips for the future
-// Trips should be sorted between past/upcoming or past/upcoming/pending - if there 
-// are no trips in one of these categories, you should indicate to the user that no 
-// trips exist for that category
-// Users booking trips for this year (2023) should accumulate to the yearly total.
-
 export {
   getAllTrips,
+  getAllDestination,
+  // getTripsByStatus,
   getYearlyExpense,
   getTravelerById
 }

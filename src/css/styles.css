@@ -104,6 +104,11 @@ grid-area: trip-info;
 border: 3px solid pink
 }
 
+.past-trips {
+  display: flex;
+  flex-direction: column;
+}
+
 .yearly-expense {
 grid-area: yearly-expense;
 border: 3px solid greenyellow
