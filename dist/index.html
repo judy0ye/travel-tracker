@@ -9,11 +9,14 @@
 <body>
   <header>
     <div class="header-container">
-      <section>
+      <section class="left-header">
         <img src="./images/turing-logo.png" alt="turing logo" width="100">
         <h1 id="headerTitle">The World Beyond Agency</h1>
       </section>
       <section class="login-section ">
+        <p class="welcome-message hidden">
+          <!-- traveler welcome message will populate here -->
+        </p>
         <form class="login" id="loginForm">
           <div>
             <label for="username">Enter Username</label>
@@ -31,7 +34,8 @@
     </div>
   </header>
   <main>
-    <div class="dashboard " >
+    <div class="dashboard " > 
+      <!-- add hidden class to dashboard -->
       <section class="left-side">
         <div class="trip-info">
           <h2>Upcoming/Pending:</h2>
@@ -45,7 +49,7 @@
         </div>
         <div class="yearly-expense">
           <h2>Yearly Expense</h2>
-          <section>
+          <section class="expense-this-year">
             <!-- yearly expense will populate here -->
           </section>
         </div>
@@ -54,7 +58,25 @@
         <div class="traveler-inputs">
           <h2>Inputs Here</h2>
           <form>
-
+            <div>
+              <label for="calendar">Select a Date<span aria-hidden="true">*</span></label>
+              <input type="date" name="calendar" id="calendar"  value aria-required="true"/>
+            </div>
+            <div>
+              <label for="duration">Enter Duration</label>
+              <input type="number" placeholder="duration" name="duration" id="duration" min="1" max="300,000,000" required value aria-required="true" aria-invalid="false" data-validate="notBlank">/>
+            </div>
+            <div>
+              <label for="traveler-numbers">Enter Number of Travelers</label>
+              <input type="number" placeholder="number of travelers" name="traveler-numbers" id="traveler-numbers" min="1" max="300,000,000" required value aria-required="true"/>
+            </div>
+            <div>
+              <label for="destination">Enter Destination</label>
+              <input type="text" placeholder="destination" name="destination" id="destination" required value aria-required="true"/>
+            </div>
+            <div>
+              <input type="submit" value="See Estimate Cost" class="submit">
+            </div>
           </form>
         </div>
         <div class="cost-estimation">
@@ -73,3 +95,4 @@
 
 </body>
 </html>
+

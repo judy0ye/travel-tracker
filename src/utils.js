@@ -12,8 +12,8 @@ const getAllDestination = (travelerId, tripsData, destinationsData) => {
   return destinationsData.destinations.filter(destination => {
     return travelerTrips.map(trip => trip.destinationID).includes(destination.id)
   })
-
 }
+
 const getYearlyExpense = (travelerId, year, tripsData, destinationData) => {
   const tripsInTheSameYear = tripsData.trips
     .filter(trip => trip.userID === travelerId)
@@ -23,7 +23,8 @@ const getYearlyExpense = (travelerId, year, tripsData, destinationData) => {
     tripsInTheSameYear.forEach(trip => {
       if (trip.destinationID === destination.id) {
         const totalFlightCostForTrip = trip.travelers * destination.estimatedFlightCostPerPerson;
-        const totalCostOfFlightAndLodging = destination.estimatedLodgingCostPerDay + totalFlightCostForTrip
+        const totalLodgingCostForTrip = destination.estimatedLodgingCostPerDay * trip.duration
+        const totalCostOfFlightAndLodging = totalLodgingCostForTrip + totalFlightCostForTrip
         const travelAgentFee = totalCostOfFlightAndLodging * .10
         total += totalCostOfFlightAndLodging + travelAgentFee
       }
@@ -36,7 +37,6 @@ const getYearlyExpense = (travelerId, year, tripsData, destinationData) => {
 export {
   getAllTrips,
   getAllDestination,
-  // getTripsByStatus,
   getYearlyExpense,
   getTravelerById
 }

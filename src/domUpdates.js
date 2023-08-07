@@ -1,47 +1,81 @@
-import {dataFromEndpoints}  from './apiCalls';
+import { dataFromEndpoints }  from './apiCalls';
 
 import{
+  getTravelerById, 
   getAllTrips, 
-  getAllDestination
+  getAllDestination,
+  getYearlyExpense
 } from './utils'
 
 import {
-  currentTraveler
+
 } from './scripts'
+
+// --------- global variables
+let currentTraveler = {}
 
 // --------- query selectors
 const loginForm = document.querySelector('#loginForm')
-const loginSection = document.querySelector('.login-section')
+// const loginSection = document.querySelector('.login-section')
 const pastTrips = document.querySelector('.past-trips')
+const pendingTrips = document.querySelector('.pending-trips')
+const welcomeMessage = document.querySelector('.welcome-message')
+const dashboard = document.querySelector('.dashboard')
+const expenseThisYear = document.querySelector('.expense-this-year')
 
-// --------- functions for event listeners
+// --------- functions invoked after event listeners implementation
 const login = (e) => {
   e.preventDefault();
 
-  const username = document.querySelector('#username').value
+  const userName = document.querySelector('#username').value
   const password = document.querySelector('#password').value
-  const currentUserId = /^traveler\d+$/;
-
-  if (currentUserId.test(username) && password === 'travel') {
-    loginSection.classList.add('hidden')
+  const currentUser = /^traveler(\d+)$/;
+  const match = userName.match(currentUser)
+  
+  if (match && password === 'travel') {
+    const travelerId = parseInt(match[1])
+    const traveler = getTravelerById(travelerId, dataFromEndpoints.travelers)
+    currentTraveler = traveler
+    loginForm.classList.add('hidden')
   }
+ 
+  displayWelcomeMessage()
+  displayTravelerTrips()
+  displayYearlyExpense()
 }
 
 // --------- functions for manipuating the DOM
+const displayWelcomeMessage = () => {
+  // if(loginForm.classList.contains('hidden')) {
+    welcomeMessage.classList.remove('hidden')
+    welcomeMessage.innerText = `Welcome ${currentTraveler.name}`
+  // }
+    dashboard.classList.remove('hidden')
+}
+
 const displayTravelerTrips = () => {
   const trips = getAllTrips(currentTraveler.id, dataFromEndpoints.trips, dataFromEndpoints.destinations)
   const tripDestinations = getAllDestination(currentTraveler.id, dataFromEndpoints.trips, dataFromEndpoints.destinations)
 
-
-  return trips.map(trip => {
+  trips.map(trip => {
     const destination = tripDestinations.find(dest => dest.id === trip.destinationID);
-      return pastTrips.innerHTML += `<p>${destination.destination} on ${trip.date}</p>`;
+
+    if (trip.status === 'approved') {
+      pastTrips.innerHTML += `<p>${trip.date}: ${destination.destination}</p>`;
+    } else if (trip.status === 'pending') {
+      pendingTrips.innerHTML += `<p>${trip.date}: ${destination.destination}</p>`;
+    }
   });
-  
 }
 
+const displayYearlyExpense = () => {
+ const expense = getYearlyExpense(currentTraveler.id, '2022', dataFromEndpoints.trips, dataFromEndpoints.destinations)
+  console.log('expense', expense)
+ expenseThisYear.innerHTML = `Your total expense this year is : $${expense}`
+}
 
 export {
+  currentTraveler,
   loginForm,
   login,
   displayTravelerTrips

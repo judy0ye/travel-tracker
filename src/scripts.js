@@ -1,7 +1,6 @@
 // This is the JavaScript entry file - your code begins here
 // Do not delete or rename this file ********
 import {
-  fetchFromEndPoints,
   fetchPromises,
   dataFromEndpoints
 } from './apiCalls'
@@ -9,12 +8,10 @@ import {
 import {
   loginForm,
   login,
-  displayTravelerTrips
 } from './domUpdates'
 
 import {
   getAllDestination,
-  getTripsByStatus
 } from '../src/utils'
 
 // An example of how you tell webpack to use a CSS (SCSS) file
@@ -24,9 +21,7 @@ import './css/styles.css';
 import './images/turing-logo.png'
 
 
-console.log('This is the JavaScript entry file - your code begins here.');
-
-const currentTraveler = {
+const currentTravelerEx = {
   "id": 3,
   "name": "Sibby Dawidowitsch",
   "travelerType": "shopper"
@@ -40,7 +35,7 @@ window.addEventListener('load', function () {
       console.log('trips: ', dataFromEndpoints.trips)
       console.log('destinations: ', dataFromEndpoints.destinations)
       console.log('getAllTrips', getAllDestination(3, dataFromEndpoints.trips, dataFromEndpoints.destinations))
-      console.log(displayTravelerTrips())
+      
     })
 })
 
@@ -48,5 +43,5 @@ loginForm.addEventListener('submit', login)
 
 
 export {
-  currentTraveler
+ 
 }

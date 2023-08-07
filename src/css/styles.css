@@ -1,6 +1,8 @@
 body {
   margin: 0;
-  background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%);
+  /* background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%); */
+  background-image: url(../images/emmanuel-denier-YiXsjwJKXmo-unsplash.jpg);
+  background-size: cover;
 }
 
 /* header */
@@ -16,13 +18,23 @@ header {
   grid-template-rows: 1fr;
 }
 
-#headerTitle{ 
+#headerTitle,
+.welcome-message { 
   color: white
 }
+
+.welcome-message {
+  font-size: xx-large;
+  font-weight: bold;
+  padding-inline-end: 0.65em;
+}
+
 .login-section {
   display: flex;
-  justify-content: flex-end;
-  color: white
+  /* justify-content: flex-end; */
+  align-items: flex-end;
+  color: white;
+  flex-direction: column;
 }
 
 
@@ -47,13 +59,14 @@ header {
 }
 
 /* dashboard panel */
-main {
+/* main {
   background-image: url(../images/emmanuel-denier-YiXsjwJKXmo-unsplash.jpg);
   background-size: cover;
-  
-}
+} */
+
 
 .dashboard {
+margin-top: 20px;
 color:antiquewhite;
 display: grid;
 height: 100vh;
