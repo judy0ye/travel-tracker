@@ -6,11 +6,66 @@ const getAllTrips = (travelerId, tripsData) => {
   return tripsData.trips.filter(trip => trip.userID === travelerId)
 }
 
-const getTripsByStatus = (travelerId, tripsData, status) => {
-  const traverlerTrips = tripsData.trips.filter(trip => trip.userID === travelerId)
+const getAllDestination = (travelerId, tripsData, destinationsData) => {
+  const travelerTrips = tripsData.trips.filter(trip => trip.userID === travelerId)
 
-  return traverlerTrips.filter(travelerTrip => travelerTrip.status === status)
+  return destinationsData.destinations.filter(destination => {
+    return travelerTrips.map(trip => trip.destinationID).includes(destination.id)
+  })
+
 }
+
+// const getAllTrips = (travelerId, tripsData, destinationsData) => {
+//   console.log(destinationsData);
+ 
+//   const travelerTrips = tripsData.trips.filter(trip => trip.userID === travelerId);
+  
+//   const destinations = destinationsData.destinations.filter(destination => {
+//     return travelerTrips.map(trip => trip.destinationID).includes(destination.id);
+//   });
+
+//   console.log('1st', travelerTrips);
+//   console.log('destination', destinations);
+//   return destinations;
+// }
+
+
+
+// const getTripInfo = (trips, userID, status) => {
+//       return trips.filter(trip => {
+//           return trip.userID === userID &&
+//           (trip.status === status || status === undefined)
+//       })
+// }
+
+
+// const getTrips = (trips, userID) => {
+//   return trips.filter(trip => {
+//       return trip.userID === userID
+//   })
+// }
+
+// const getPastTrips = (trips, userID) => {
+//   return trips.filter(trip => {
+//       return trip.userID === userID && trip.status === 'approved'
+//   })
+// }
+
+const getUpcomingTrips = (trips, userID) => {
+  return trips.filter(trip => {
+      return trip.userID === userID && trip.status === 'pending'
+  })
+}
+
+// const getTripsByStatus = (travelerId, tripsData, status) => {
+//   const traverlerTrips = tripsData.trips.filter(trip => trip.userID === travelerId)
+
+//   return traverlerTrips.filter(travelerTrip => travelerTrip.status === status)
+// }
+// const getTripsByStatus = (travelerId, tripsData, status) => {
+//   return tripsData.trips.filter(trip => trip.userID === travelerId 
+//     && trip.status === status)
+// }
 
 const getYearlyExpense = (travelerId, year, tripsData, destinationData) => {
   const tripsInTheSameYear = tripsData.trips
@@ -41,7 +96,8 @@ const getYearlyExpense = (travelerId, year, tripsData, destinationData) => {
 
 export {
   getAllTrips,
-  getTripsByStatus,
+  getAllDestination,
+  // getTripsByStatus,
   getYearlyExpense,
   getTravelerById
 }
