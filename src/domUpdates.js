@@ -13,6 +13,7 @@ import {
 
 // --------- global variables
 let currentTraveler = {}
+let tripEstimationData = {}
 
 // --------- query selectors
 const loginForm = document.querySelector('#loginForm')
@@ -42,7 +43,7 @@ const login = (e) => {
     loginForm.classList.add('hidden')
   }
   
-  // getDestinationList()
+  getDestinationList()
   displayWelcomeMessage()
   displayTravelerTrips()
   displayYearlyExpense()
@@ -51,7 +52,7 @@ const login = (e) => {
 const getDestinationList = () =>  {
   destinationDropDown.innerHTML = '<option value="" disabled>Select a destination</option>';
   dataFromEndpoints.destinations.destinations.forEach(destination => {
-    destinationDropDown.innerHTML += `<option>${destination.destination}</option>`;
+    destinationDropDown.innerHTML += `<option value="${destination.id}">${destination.destination}</option>`;
   });
 
   destinationDropDown.selectedIndex = 0;
@@ -97,17 +98,30 @@ const displayCostOfTrip = (e) => {
     calendar: formData.get('calendar'), 
     duration: formData.get('duration'),
     traveler_numbers: formData.get('traveler_numbers'),
-    // destination: formData.get('destination'),  
+    destination: destinationDropDown.options[destinationDropDown.selectedIndex].text
   };
-
+  tripEstimationData = tripEstimation
+  console.log('tripEstData', tripEstimationData)
   costOfTrip.innerHTML = `
+    <p>Total Cost of Trip: $${getCostForTrip()}</p>
     <p>Date: ${tripEstimation.calendar}</p>
     <p>Duration: ${tripEstimation.duration}</p>
     <p>Traveler Numbers: ${tripEstimation.traveler_numbers}</p>
     <p>Destination: ${tripEstimation.destination}</p>
-    
   `
   e.target.reset();
+  destinationDropDown.selectedIndex = 0;
+}
+
+const getCostForTrip = () => {
+  console.log(tripEstimationData)
+  const destination = dataFromEndpoints.destinations.destinations.find(destination => destination.destination === tripEstimationData.destination)
+
+  const totalLodgingCost = destination.estimatedLodgingCostPerDay * tripEstimationData.duration
+  const totalFlightCost = destination.estimatedFlightCostPerPerson * tripEstimationData.traveler_numbers
+  const travelAgentFee = (totalLodgingCost + totalFlightCost) * .10
+
+  return totalLodgingCost + totalFlightCost + travelAgentFee
 }
 
 export {

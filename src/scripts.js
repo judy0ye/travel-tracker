@@ -39,7 +39,7 @@ window.addEventListener('load', function () {
       console.log('destinations: ', dataFromEndpoints.destinations)
       console.log('getAllTrips', getAllDestination(3, dataFromEndpoints.trips, dataFromEndpoints.destinations))
       console.log(dataFromEndpoints.trips.trips[202])
-      getDestinationList()
+
     })
 })
 
