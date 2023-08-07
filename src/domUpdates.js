@@ -17,6 +17,7 @@ const loginForm = document.querySelector('#loginForm')
 // const loginSection = document.querySelector('.login-section')
 const pastTrips = document.querySelector('.past-trips')
 const welcomeMessage = document.querySelector('.welcome-message')
+const dashboard = document.querySelector('.dashboard')
 
 // --------- functions for event listeners
 const login = (e) => {
@@ -44,10 +45,11 @@ const login = (e) => {
 
 // --------- functions for manipuating the DOM
 const displayWelcomeMessage = () => {
-  if(loginForm.classList.contains('hidden')) {
+  // if(loginForm.classList.contains('hidden')) {
     welcomeMessage.classList.remove('hidden')
     welcomeMessage.innerText = `Welcome ${currentTraveler.name}`
-  }
+  // }
+    dashboard.classList.remove('hidden')
 }
 
 const displayTravelerTrips = () => {
