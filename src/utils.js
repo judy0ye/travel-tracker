@@ -33,7 +33,6 @@ const getYearlyExpense = (travelerId, year, tripsData, destinationData) => {
   }, 0)
 }
 
-
 export {
   getAllTrips,
   getAllDestination,
