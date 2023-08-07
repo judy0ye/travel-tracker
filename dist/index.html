@@ -57,7 +57,7 @@
       <section class="right-side">
         <div class="traveler-inputs">
           <h2>Inputs Here</h2>
-          <form>
+          <form id="tripSubmission">
             <div>
               <label for="calendar">Select a Date<span aria-hidden="true">*</span></label>
               <input type="date" name="calendar" id="calendar"  value aria-required="true"/>
@@ -68,7 +68,7 @@
             </div>
             <div>
               <label for="traveler-numbers">Enter Number of Travelers</label>
-              <input type="number" placeholder="number of travelers" name="traveler-numbers" id="traveler-numbers" min="1" max="300,000,000" required value aria-required="true"/>
+              <input type="number" placeholder="number of travelers" name="traveler_numbers" id="traveler-numbers" min="1" max="300,000,000" required value aria-required="true"/>
             </div>
             <div>
               <label for="destination">Enter Destination</label>
@@ -81,7 +81,7 @@
         </div>
         <div class="cost-estimation">
           <h2>Cost Estimation</h2>
-          <section>
+          <section class="trip-cost-estimation">
             <!-- cost estimation of trip will populate here -->
           </section>
         </div>

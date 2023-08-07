@@ -7,7 +7,9 @@ import {
 
 import {
   loginForm,
+  tripSubmissionForm,
   login,
+  displayCostOfTrip
 } from './domUpdates'
 
 import {
@@ -35,13 +37,10 @@ window.addEventListener('load', function () {
       console.log('trips: ', dataFromEndpoints.trips)
       console.log('destinations: ', dataFromEndpoints.destinations)
       console.log('getAllTrips', getAllDestination(3, dataFromEndpoints.trips, dataFromEndpoints.destinations))
-      
+      console.log(dataFromEndpoints.trips.trips[202])
     })
 })
 
 loginForm.addEventListener('submit', login)
+tripSubmissionForm.addEventListener('submi', displayCostOfTrip)
 
-
-export {
- 
-}

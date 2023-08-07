@@ -16,12 +16,14 @@ let currentTraveler = {}
 
 // --------- query selectors
 const loginForm = document.querySelector('#loginForm')
+const tripSubmissionForm = document.querySelector('#tripSubmission')
 // const loginSection = document.querySelector('.login-section')
 const pastTrips = document.querySelector('.past-trips')
 const pendingTrips = document.querySelector('.pending-trips')
 const welcomeMessage = document.querySelector('.welcome-message')
 const dashboard = document.querySelector('.dashboard')
 const expenseThisYear = document.querySelector('.expense-this-year')
+const costOfTrip = document.querySelector('trip-cost-estimation')
 
 // --------- functions invoked after event listeners implementation
 const login = (e) => {
@@ -74,9 +76,23 @@ const displayYearlyExpense = () => {
  expenseThisYear.innerHTML = `Your total expense this year is : $${expense}`
 }
 
+const displayCostOfTrip = (e) => {
+  e.preventDefault();
+  const formData = new FormData(e.target);
+  const tripEstimation = {
+    id: dataFromEndpoints.trips.trips[202].id + 1,
+    duration: formData.get('duration'),
+    traveler_numbers: formData.get('traveler_numbers'),
+    destination: formData.get('destination')
+  }
+  // function(tripEstimation)
+  e.target.reset();
+}
+
 export {
   currentTraveler,
   loginForm,
+  tripSubmissionForm,
   login,
-  displayTravelerTrips
+  displayCostOfTrip
 }
