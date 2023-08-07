@@ -4,7 +4,6 @@ const expect = chai.expect;
 import {
   getAllTrips,
   getAllDestination,
-  // getTripsByStatus,
   getYearlyExpense,
   getTravelerById,
 } from '../src/utils'

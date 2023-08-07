@@ -1,7 +1,6 @@
 // This is the JavaScript entry file - your code begins here
 // Do not delete or rename this file ********
 import {
-  fetchFromEndPoints,
   fetchPromises,
   dataFromEndpoints
 } from './apiCalls'
@@ -9,12 +8,10 @@ import {
 import {
   loginForm,
   login,
-  displayTravelerTrips
 } from './domUpdates'
 
 import {
   getAllDestination,
-  getTripsByStatus
 } from '../src/utils'
 
 // An example of how you tell webpack to use a CSS (SCSS) file
@@ -46,5 +43,5 @@ loginForm.addEventListener('submit', login)
 
 
 export {
-  // currentTravelerEx
+ 
 }

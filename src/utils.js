@@ -12,11 +12,8 @@ const getAllDestination = (travelerId, tripsData, destinationsData) => {
   return destinationsData.destinations.filter(destination => {
     return travelerTrips.map(trip => trip.destinationID).includes(destination.id)
   })
-  // return destinationsData.destinations.filter(destination => {
-  //   return travelerTrips.map(trip => trip.destinationID === destination.id)
-  // } )
-  
 }
+
 const getYearlyExpense = (travelerId, year, tripsData, destinationData) => {
   const tripsInTheSameYear = tripsData.trips
     .filter(trip => trip.userID === travelerId)
@@ -40,7 +37,6 @@ const getYearlyExpense = (travelerId, year, tripsData, destinationData) => {
 export {
   getAllTrips,
   getAllDestination,
-  // getTripsByStatus,
   getYearlyExpense,
   getTravelerById
 }

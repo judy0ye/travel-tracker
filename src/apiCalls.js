@@ -20,12 +20,9 @@ const fetchFromEndPoints = endPointName => {
     .catch(error => console.error('Request failed from catch', error))
 }
 
-
 const fetchPromises = endPointNameList.map(endPoint => fetchFromEndPoints(endPoint))
 
-
 export {
-  fetchFromEndPoints,
   fetchPromises,
   dataFromEndpoints
 }
