@@ -24,9 +24,7 @@ import './css/styles.css';
 import './images/turing-logo.png'
 
 
-console.log('This is the JavaScript entry file - your code begins here.');
-
-const currentTraveler = {
+const currentTravelerEx = {
   "id": 3,
   "name": "Sibby Dawidowitsch",
   "travelerType": "shopper"
@@ -40,7 +38,7 @@ window.addEventListener('load', function () {
       console.log('trips: ', dataFromEndpoints.trips)
       console.log('destinations: ', dataFromEndpoints.destinations)
       console.log('getAllTrips', getAllDestination(3, dataFromEndpoints.trips, dataFromEndpoints.destinations))
-      console.log(displayTravelerTrips())
+      
     })
 })
 
@@ -48,5 +46,5 @@ loginForm.addEventListener('submit', login)
 
 
 export {
-  currentTraveler
+  currentTravelerEx
 }
