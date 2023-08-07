@@ -23,7 +23,7 @@ const pendingTrips = document.querySelector('.pending-trips')
 const welcomeMessage = document.querySelector('.welcome-message')
 const dashboard = document.querySelector('.dashboard')
 const expenseThisYear = document.querySelector('.expense-this-year')
-const costOfTrip = document.querySelector('trip-cost-estimation')
+const costOfTrip = document.querySelector('.trip-cost-estimation')
 
 // --------- functions invoked after event listeners implementation
 const login = (e) => {
@@ -79,13 +79,22 @@ const displayYearlyExpense = () => {
 const displayCostOfTrip = (e) => {
   e.preventDefault();
   const formData = new FormData(e.target);
+
   const tripEstimation = {
     id: dataFromEndpoints.trips.trips[202].id + 1,
+    calendar: formData.get('calendar'), 
     duration: formData.get('duration'),
     traveler_numbers: formData.get('traveler_numbers'),
-    destination: formData.get('destination')
-  }
-  // function(tripEstimation)
+    destination: formData.get('destination'),  
+  };
+
+  costOfTrip.innerHTML = `
+    <p>Date: ${tripEstimation.calendar}</p>
+    <p>Duration: ${tripEstimation.duration}</p>
+    <p>Traveler Numbers: ${tripEstimation.traveler_numbers}</p>
+    <p>Destination: ${tripEstimation.destination}</p>
+    
+  `
   e.target.reset();
 }
 

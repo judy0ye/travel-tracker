@@ -42,5 +42,5 @@ window.addEventListener('load', function () {
 })
 
 loginForm.addEventListener('submit', login)
-tripSubmissionForm.addEventListener('submi', displayCostOfTrip)
+tripSubmissionForm.addEventListener('submit', displayCostOfTrip)
 
