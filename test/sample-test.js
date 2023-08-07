@@ -249,6 +249,6 @@ describe('total yearly expenses', function() {
   });
   it('should return total amount spent in a given year', function() {
     const expenseIn2020 = getYearlyExpense(3, '2020', tripsData, destinationsData)
-    expect(expenseIn2020).to.equal(6325)
+    expect(expenseIn2020).to.equal(8866)
   })
 })

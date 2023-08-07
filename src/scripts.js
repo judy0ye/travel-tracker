@@ -46,5 +46,5 @@ loginForm.addEventListener('submit', login)
 
 
 export {
-  currentTravelerEx
+  // currentTravelerEx
 }

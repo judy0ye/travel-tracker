@@ -7,7 +7,7 @@ import{
 } from './utils'
 
 import {
-  currentTravelerEx
+  // currentTravelerEx
 } from './scripts'
 
 // --------- global variables
@@ -16,6 +16,7 @@ let currentTraveler = {}
 const loginForm = document.querySelector('#loginForm')
 // const loginSection = document.querySelector('.login-section')
 const pastTrips = document.querySelector('.past-trips')
+const pendingTrips = document.querySelector('.pending-trips')
 const welcomeMessage = document.querySelector('.welcome-message')
 const dashboard = document.querySelector('.dashboard')
 
@@ -40,7 +41,7 @@ const login = (e) => {
   //   loginSection.classList.add('hidden')
   // }
   displayWelcomeMessage()
-
+  displayTravelerTrips(currentTraveler)
 }
 
 // --------- functions for manipuating the DOM
@@ -52,13 +53,29 @@ const displayWelcomeMessage = () => {
     dashboard.classList.remove('hidden')
 }
 
-const displayTravelerTrips = () => {
-  const trips = getAllTrips(currentTravelerEx.id, dataFromEndpoints.trips, dataFromEndpoints.destinations)
-  const tripDestinations = getAllDestination(currentTravelerEx.id, dataFromEndpoints.trips, dataFromEndpoints.destinations)
+// const displayTravelerTrips = () => {
+//   const trips = getAllTrips(currentTravelerEx.id, dataFromEndpoints.trips, dataFromEndpoints.destinations)
+//   const tripDestinations = getAllDestination(currentTravelerEx.id, dataFromEndpoints.trips, dataFromEndpoints.destinations)
+
+//   return trips.map(trip => {
+//     const destination = tripDestinations.find(dest => dest.id === trip.destinationID);
+//       return pastTrips.innerHTML += `<p>${destination.destination} on ${trip.date}</p>`;
+//   });
+// }
+const displayTravelerTrips = (currentTraveler) => {
+  const trips = getAllTrips(currentTraveler.id, dataFromEndpoints.trips, dataFromEndpoints.destinations)
+  const tripDestinations = getAllDestination(currentTraveler.id, dataFromEndpoints.trips, dataFromEndpoints.destinations)
+  console.log('alltrips', trips)
+  console.log('tripDestinations', tripDestinations)
 
   return trips.map(trip => {
     const destination = tripDestinations.find(dest => dest.id === trip.destinationID);
-      return pastTrips.innerHTML += `<p>${destination.destination} on ${trip.date}</p>`;
+      if (trip.status === 'approved') {
+        pastTrips.innerHTML += `<p>${trip.date}: ${destination.destination}</p>`;
+      } else if (trip.status === 'pending') {
+        pendingTrips.innerHTML += `<p>${trip.date}: ${destination.destination}</p>`;
+      }
+      
   });
 }
 
