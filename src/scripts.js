@@ -2,15 +2,24 @@
 // Do not delete or rename this file ********
 import {
   fetchPromises,
-  dataFromEndpoints
+  dataFromEndpoints,
+  submitTripRequest 
 } from './apiCalls'
 
 import {
   loginForm,
   tripSubmissionForm,
   login,
+  submitToTravelAgentButton,
   displayCostOfTrip,
-  getDestinationList
+  getDestinationList,
+  // submitTravel,
+  potentialVacation,
+  displayTravelerTrips,
+  displayStatus,
+  setCalendarMinDate,
+  specificYearDropdown,
+  displayYearlyExpense  
 } from './domUpdates'
 
 import {
@@ -23,12 +32,7 @@ import './css/styles.css';
 // An example of how you tell webpack to use an image (also need to link to it in the index.html)
 import './images/turing-logo.png'
 
-
-const currentTravelerEx = {
-  "id": 3,
-  "name": "Sibby Dawidowitsch",
-  "travelerType": "shopper"
-}
+let newTripFromInput
 
 // --------- event listeners
 window.addEventListener('load', function () {
@@ -37,12 +41,26 @@ window.addEventListener('load', function () {
       console.log('travelers: ', dataFromEndpoints.travelers);
       console.log('trips: ', dataFromEndpoints.trips)
       console.log('destinations: ', dataFromEndpoints.destinations)
-      console.log('getAllTrips', getAllDestination(3, dataFromEndpoints.trips, dataFromEndpoints.destinations))
-      console.log(dataFromEndpoints.trips.trips[202])
-
+      getDestinationList() 
+      setCalendarMinDate()
     })
+    .catch(error => console.log('Request failed from Promise.all', error))
 })
 
 loginForm.addEventListener('submit', login)
+specificYearDropdown.addEventListener('change', displayYearlyExpense)
 tripSubmissionForm.addEventListener('submit', displayCostOfTrip)
+// submitTravel.addEventListener('click', displayCostOfTrip)
 
+submitToTravelAgentButton.addEventListener('click', () => {
+  submitTripRequest(potentialVacation)
+  .then(data => {
+    newTripFromInput = data
+    displayStatus(newTripFromInput)
+  })
+  .catch(error => console.error(`Error at ${error}`))
+})
+
+export {
+  newTripFromInput
+}

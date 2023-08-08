@@ -22,9 +22,22 @@ const fetchFromEndPoints = endPointName => {
 
 const fetchPromises = endPointNameList.map(endPoint => fetchFromEndPoints(endPoint))
 
+// --------- POST request
+const submitTripRequest = (potentialVacation) => {
+  console.log('fromPost', potentialVacation)
+  return fetch(`http://localhost:3001/api/v1/trips`, {
+    method: 'POST',
+    body: JSON.stringify(potentialVacation),
+    headers:{ 'Content-Type': 'application/json' }
+  })
+  .then(res => res.json())
+  .catch(error => console.error(`Error at ${error}`))
+}
+
 export {
   fetchPromises,
-  dataFromEndpoints
+  dataFromEndpoints,
+  submitTripRequest 
 }
 
 
