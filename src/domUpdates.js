@@ -62,6 +62,15 @@ const login = (e) => {
   displayYearlyExpense()
 }
 
+const setCalendarMinDate = () => {
+  const startDate = new Date()
+  
+  const dateString = `${startDate.getFullYear()}-${('0' + (startDate.getMonth() + 1)).slice(-2)}-${('0' + startDate.getDate()).slice(-2)}`;
+
+  calendarInput.setAttribute('min', dateString)
+}
+
+
 const getDestinationList = () =>  {
   destinationDropDown.innerHTML = '<option value="" disabled>Select a destination</option>';
   dataFromEndpoints.destinations.destinations.forEach(destination => {
@@ -82,40 +91,40 @@ const displayWelcomeMessage = () => {
 }
 
 const displayTravelerTrips = (dataFromEndpoints) => {
-  const trips = getAllTrips(currentTraveler.id, dataFromEndpoints.trips, dataFromEndpoints.destinations)
-  const tripDestinations = getAllDestination(currentTraveler.id, dataFromEndpoints.trips, dataFromEndpoints.destinations)
+  const trips = getAllTrips(currentTraveler.id, dataFromEndpoints.trips, dataFromEndpoints.destinations);
+  const tripDestinations = getAllDestination(currentTraveler.id, dataFromEndpoints.trips, dataFromEndpoints.destinations);
 
-  trips.map(trip => {
-    const destination = tripDestinations.find(dest => dest.id === trip.destinationID);
+  const { pastTripsHTML, pendingTripsHTML } = trips.reduce((tripByStatus, trip) => {
+    const destination = tripDestinations.find(destination => destination.id === trip.destinationID);
 
-  //   if (trip.status === 'approved') {
-  //     pastTrips.innerHTML += `<p>${trip.date}: ${destination.destination}</p>`;
-  //   } else if (trip.status === 'pending') {
-  //     pendingTrips.innerHTML += `<p>${trip.date}: ${destination.destination}</p>`;
-  //   }
-  // });
-    if (trip.status === 'approved') {
-      pastTrips.innerHTML += 
-      `<article class="trip-cards">
+    const tripCard = `
+      <article class="trip-cards">
         <section>
-          <img class="trip-image" src='${destination.image}' alt='${destination.alt}'/>
+          <img class="trip-image" src="${destination.image}" alt="${destination.alt}"/>
         </section>
         <section>
           <h3>${trip.date}: ${destination.destination}</h3>
         </section>
       </article>`;
+
+    if (trip.status === 'approved') {
+      tripByStatus.pastTripsHTML += tripCard;
     } else if (trip.status === 'pending') {
-      pendingTrips.innerHTML += `<article><p>${trip.date}: ${destination.destination}</p>
-      </article>`;
+      tripByStatus.pendingTripsHTML += tripCard;
     }
-  });
-}
+
+    return tripByStatus;
+    }, { pastTripsHTML: '', pendingTripsHTML: '' }
+  );
+  pastTrips.innerHTML = pastTripsHTML;
+  pendingTrips.innerHTML = pendingTripsHTML;
+};
 
 const displayYearlyExpense = () => {
   const year = specificYearDropdown.value
   const expense = getYearlyExpense(currentTraveler.id, year, dataFromEndpoints.trips, dataFromEndpoints.destinations)
 
- expenseThisYear.innerHTML = `<p>Total Expense: $${expense} for ${year}</p>`
+ expenseThisYear.innerHTML = `<p>Total Expense for ${year}: $${expense} </p>`
 }
 
 const getYearList = () =>  {
@@ -138,16 +147,6 @@ const getYearList = () =>  {
   });
 };
 
-
-
-
-const setCalendarMinDate = () => {
-  const startDate = new Date()
-  
-  const dateString = `${startDate.getFullYear()}-${('0' + (startDate.getMonth() + 1)).slice(-2)}-${('0' + startDate.getDate()).slice(-2)}`;
-
-  calendarInput.setAttribute('min', dateString)
-}
 
 
 const getCostForTrip = (tripEstimationData) => {
@@ -187,13 +186,20 @@ const displayCostOfTrip = (e) => {
   destinationDropDown.selectedIndex = 0
 }
 
+// --------- DOM manipuation for POST
 const displayStatus = (newTripFromInput) => {
   const matchingDestination = dataFromEndpoints.destinations.destinations.find(destination => destination.id === newTripFromInput.newTrip.destinationID)
 
-  pendingTrips.innerHTML += `<p>${newTripFromInput.newTrip.date}: ${matchingDestination.destination}</p>`;
+  pendingTrips.innerHTML += `
+  <article class="trip-cards">
+    <section>
+      <img class="trip-image" src="${matchingDestination.image}" alt="${matchingDestination.alt}"/>
+    </section>
+    <section>
+      <h3>${newTripFromInput.newTrip.date}: ${matchingDestination.destination}</h3>
+    </section>
+  </article>`;
 }
-
-
 
 export {
   currentTraveler,
