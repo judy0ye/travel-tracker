@@ -31,6 +31,7 @@ const submitTripRequest = (potentialVacation) => {
     headers:{ 'Content-Type': 'application/json' }
   })
   .then(res => res.json())
+  .catch(error => console.error(`Error at ${error}`))
 }
 
 export {

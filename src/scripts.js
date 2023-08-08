@@ -40,6 +40,7 @@ window.addEventListener('load', function () {
       console.log('destinations: ', dataFromEndpoints.destinations)
       getDestinationList() 
     })
+    .catch(error => console.log('Request failed from Promise.all', error))
 })
 
 loginForm.addEventListener('submit', login)
@@ -51,9 +52,9 @@ submitToTravelAgentButton.addEventListener('click', () => {
   submitTripRequest(potentialVacation)
   .then(data => {
     newTripFromInput = data
-    console.log('data', newTripFromInput)
     displayStatus(newTripFromInput)
   })
+  .catch(error => console.error(`Error at ${error}`))
 })
 
 export {

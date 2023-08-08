@@ -157,7 +157,6 @@ const displayCostOfTrip = (e) => {
     destination: parseInt(destinationDropDown.value)
   };
   
-
   potentialVacation = createVacation(currentTraveler, tripEstimationData)
   
   const matchingDestination = dataFromEndpoints.destinations.destinations.find(destination => destination.id === tripEstimationData.destination)
@@ -168,14 +167,13 @@ const displayCostOfTrip = (e) => {
   <p>Duration: ${tripEstimationData.duration}</p>
   <p>Traveler Numbers: ${tripEstimationData.numOfTravelers}</p>
   <p>Destination: ${matchingDestination.destination}</p>`
+
   e.target.reset();
   destinationDropDown.selectedIndex = 0
 }
 
 const displayStatus = (newTripFromInput) => {
   const matchingDestination = dataFromEndpoints.destinations.destinations.find(destination => destination.id === newTripFromInput.newTrip.destinationID)
-  console.log('matchingDestination', matchingDestination)
-  console.log('dotNotationDestination', dataFromEndpoints.destinations.destinations)
 
   pendingTrips.innerHTML += `<p>${newTripFromInput.newTrip.date}: ${matchingDestination.destination}</p>`;
 }

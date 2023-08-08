@@ -33,11 +33,7 @@ const getYearlyExpense = (travelerId, year, tripsData, destinationData) => {
   }, 0)
 }
 
-export const createVacation = (traveler, destinationData) => {
-
-  console.log('traveler ', traveler)
-  console.log('destination', destinationData)
-  
+const createVacation = (traveler, destinationData) => {
   return {
     id: Date.now(),
     userID: traveler.id,
@@ -54,5 +50,6 @@ export {
   getAllTrips,
   getAllDestination,
   getYearlyExpense,
-  getTravelerById
+  getTravelerById,
+  createVacation
 }
