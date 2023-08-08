@@ -18,9 +18,9 @@ let potentialVacation = {}
 // let tripEstimationData = {}
 
 // --------- query selectors
-const loginForm = document.querySelector('#loginForm')
-const tripSubmissionForm = document.querySelector('#tripSubmission')
-const submitToTravelAgentButton = document.querySelector('#submitToTravelAgent')
+const loginForm = document.querySelector('#login-form')
+const tripSubmissionForm = document.querySelector('#trip-submission')
+const submitToTravelAgentButton = document.querySelector('#submit-to-travel-agent')
 const invalidLoginMessage = document.querySelector('.invalid-login-message')
 // const submitTravel = document.querySelector('#submitTravel')
 const loginSection = document.querySelector('.login-section')
@@ -28,12 +28,14 @@ const pastTrips = document.querySelector('.past-trips')
 const pendingTrips = document.querySelector('.pending-trips')
 const welcomeMessage = document.querySelector('.welcome-message')
 const dashboard = document.querySelector('.dashboard')
-const expenseThisYear = document.querySelector('.expense-this-year')
+const expenseThisYear = document.querySelector('.specific-year-expense')
 const costOfTrip = document.querySelector('.trip-cost-estimation')
 const destinationDropDown = document.querySelector('#destination')
 const calendarInput = document.querySelector('#calendar')
 const durationInput = document.querySelector('#duration')
 const travelerAmtInput = document.querySelector('#traveler-numbers')
+const costEsimationSection = document.querySelector('.cost-estimation')
+const specificYearDropdown = document.querySelector('#specific-year')
 
 // --------- functions invoked after event listeners implementation
 const login = (e) => {
@@ -53,7 +55,8 @@ const login = (e) => {
     invalidLoginMessage.innerHTML = `<p>Please enter a valid username and/or password</p>`
   }
   
-  getDestinationList()
+  getYearList()
+  // getDestinationList()
   displayWelcomeMessage()
   displayTravelerTrips(dataFromEndpoints)
   displayYearlyExpense()
@@ -85,19 +88,58 @@ const displayTravelerTrips = (dataFromEndpoints) => {
   trips.map(trip => {
     const destination = tripDestinations.find(dest => dest.id === trip.destinationID);
 
+  //   if (trip.status === 'approved') {
+  //     pastTrips.innerHTML += `<p>${trip.date}: ${destination.destination}</p>`;
+  //   } else if (trip.status === 'pending') {
+  //     pendingTrips.innerHTML += `<p>${trip.date}: ${destination.destination}</p>`;
+  //   }
+  // });
     if (trip.status === 'approved') {
-      pastTrips.innerHTML += `<p>${trip.date}: ${destination.destination}</p>`;
+      pastTrips.innerHTML += 
+      `<article class="trip-cards">
+        <section>
+          <img class="trip-image" src='${destination.image}' alt='${destination.alt}'/>
+        </section>
+        <section>
+          <h3>${trip.date}: ${destination.destination}</h3>
+        </section>
+      </article>`;
     } else if (trip.status === 'pending') {
-      pendingTrips.innerHTML += `<p>${trip.date}: ${destination.destination}</p>`;
+      pendingTrips.innerHTML += `<article><p>${trip.date}: ${destination.destination}</p>
+      </article>`;
     }
   });
 }
 
 const displayYearlyExpense = () => {
- const expense = getYearlyExpense(currentTraveler.id, '2022', dataFromEndpoints.trips, dataFromEndpoints.destinations)
-  console.log('expense', expense)
- expenseThisYear.innerHTML = `Your total expense this year is : $${expense} in 2022`
+  const year = specificYearDropdown.value
+  const expense = getYearlyExpense(currentTraveler.id, year, dataFromEndpoints.trips, dataFromEndpoints.destinations)
+
+ expenseThisYear.innerHTML = `<p>Total Expense: $${expense} for ${year}</p>`
 }
+
+const getYearList = () =>  {
+  const uniqueYears = new Set()
+
+  const tripsByTraveler = dataFromEndpoints.trips.trips
+    .filter(trip => trip.userID === currentTraveler.id)
+    .forEach(trip => {
+      const yearOnly = trip.date.split('/')[0]
+      uniqueYears.add(yearOnly)
+  })
+ 
+  const allTripYears = [...uniqueYears]
+  allTripYears.sort((a, b) => b - a)
+  console.log(allTripYears)
+  
+  allTripYears.forEach(tripYear => {
+    console.log('tripyr', tripYear)
+    specificYearDropdown.innerHTML += `<option value="${tripYear}">${tripYear}</option>`;
+  });
+};
+
+
+
 
 const setCalendarMinDate = () => {
   const startDate = new Date()
@@ -139,6 +181,8 @@ const displayCostOfTrip = (e) => {
   <p>Traveler Numbers: ${tripEstimationData.numOfTravelers}</p>
   <p>Destination: ${matchingDestination.destination}</p>`
 
+  costEsimationSection.classList.remove('hidden')
+
   e.target.reset();
   destinationDropDown.selectedIndex = 0
 }
@@ -163,5 +207,7 @@ export {
   potentialVacation,
   displayTravelerTrips,
   displayStatus,
-  setCalendarMinDate 
+  setCalendarMinDate,
+  specificYearDropdown,
+  displayYearlyExpense 
 }

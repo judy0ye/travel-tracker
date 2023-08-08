@@ -17,7 +17,9 @@ import {
   potentialVacation,
   displayTravelerTrips,
   displayStatus,
-  setCalendarMinDate  
+  setCalendarMinDate,
+  specificYearDropdown,
+  displayYearlyExpense  
 } from './domUpdates'
 
 import {
@@ -46,6 +48,7 @@ window.addEventListener('load', function () {
 })
 
 loginForm.addEventListener('submit', login)
+specificYearDropdown.addEventListener('change', displayYearlyExpense)
 tripSubmissionForm.addEventListener('submit', displayCostOfTrip)
 // submitTravel.addEventListener('click', displayCostOfTrip)
 
