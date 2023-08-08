@@ -21,8 +21,9 @@ let potentialVacation = {}
 const loginForm = document.querySelector('#loginForm')
 const tripSubmissionForm = document.querySelector('#tripSubmission')
 const submitToTravelAgentButton = document.querySelector('#submitToTravelAgent')
+const invalidLoginMessage = document.querySelector('.invalid-login-message')
 // const submitTravel = document.querySelector('#submitTravel')
-// const loginSection = document.querySelector('.login-section')
+const loginSection = document.querySelector('.login-section')
 const pastTrips = document.querySelector('.past-trips')
 const pendingTrips = document.querySelector('.pending-trips')
 const welcomeMessage = document.querySelector('.welcome-message')
@@ -42,12 +43,14 @@ const login = (e) => {
   const password = document.querySelector('#password').value
   const currentUser = /^traveler(\d+)$/;
   const match = userName.match(currentUser)
-  
-  if (match && password === 'travel') {
+
+  if (match && match[1] >= 1 && match[1] <= 51 && password === 'travel') {
     const travelerId = parseInt(match[1])
     const traveler = getTravelerById(travelerId, dataFromEndpoints.travelers)
     currentTraveler = traveler
     loginForm.classList.add('hidden')
+  } else  {
+    invalidLoginMessage.innerHTML = `<p>Please enter a valid username and/or password</p>`
   }
   
   getDestinationList()
@@ -68,11 +71,11 @@ const getDestinationList = () =>  {
 
 // --------- functions for manipuating the DOM
 const displayWelcomeMessage = () => {
-  // if(loginForm.classList.contains('hidden')) {
+  if(currentTraveler.name) {
     welcomeMessage.classList.remove('hidden')
     welcomeMessage.innerText = `Welcome ${currentTraveler.name}`
-  // }
     dashboard.classList.remove('hidden')
+  }
 }
 
 const displayTravelerTrips = (dataFromEndpoints) => {

@@ -9,7 +9,7 @@ body {
 header {
   background-color: rgb(43 43 43);
   width: 100vw;
-  height: 22vh;
+  height: 25vh;
 }
 
 .header-container {
@@ -43,8 +43,8 @@ header {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  padding: 1em;
-  border: 3px solid white
+  padding: .2em 1em;
+  /* border: 3px solid white */
 }
 
 #username,
