@@ -33,6 +33,23 @@ const getYearlyExpense = (travelerId, year, tripsData, destinationData) => {
   }, 0)
 }
 
+export const createVacation = (traveler, destinationData) => {
+
+  console.log('traveler ', traveler)
+  console.log('destination', destinationData)
+  
+  return {
+    id: Date.now(),
+    userID: traveler.id,
+    destinationID: destinationData.destination,
+    travelers: destinationData.numOfTravelers,
+    date: destinationData.calendar.replaceAll('-', '/'),
+    duration: destinationData.duration,
+    status: "pending",
+    suggestedActivities: [],
+  }
+}
+
 export {
   getAllTrips,
   getAllDestination,
