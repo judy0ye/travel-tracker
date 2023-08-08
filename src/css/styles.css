@@ -79,6 +79,8 @@ grid-template-areas:
 }
 
 .left-side {
+background-color: #333333;
+opacity: 90%;
 grid-area: left-side;
 margin-left: 2em;
 border: 5px solid blue;
@@ -91,6 +93,8 @@ grid-template-areas:
 }
 
 .right-side {
+background-color: #333333;
+opacity: 90%;
 grid-area: right-side;
 margin-right: 2em;
 border: 5px solid grey;
@@ -114,7 +118,8 @@ border: 3px solid yellow
 
 .trip-info {
 grid-area: trip-info;
-border: 3px solid pink
+border: 3px solid pink;
+
 }
 
 .past-trips {
@@ -126,6 +131,36 @@ border: 3px solid pink
 grid-area: yearly-expense;
 border: 3px solid greenyellow
 }
+
+/* #tripSubmission {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr ;
+  padding-block: 1em;
+  justify-items: end;
+} */
+
+#tripSubmission div {
+  display: flex;
+  padding: .5em;
+  margin: 3em;
+  flex-direction: column;
+  
+}
+
+#tripSubmission input {
+  height: 2em
+}
+#tripSubmission select {
+  height: 2em
+}
+
+
+
+
+
+
+
 
 .hidden {
   display: none!important;

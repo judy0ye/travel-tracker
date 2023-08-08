@@ -16,7 +16,8 @@ import {
   // submitTravel,
   potentialVacation,
   displayTravelerTrips,
-  displayStatus  
+  displayStatus,
+  setCalendarMinDate  
 } from './domUpdates'
 
 import {
@@ -39,6 +40,7 @@ window.addEventListener('load', function () {
       console.log('trips: ', dataFromEndpoints.trips)
       console.log('destinations: ', dataFromEndpoints.destinations)
       getDestinationList() 
+      setCalendarMinDate()
     })
     .catch(error => console.log('Request failed from Promise.all', error))
 })
@@ -46,7 +48,6 @@ window.addEventListener('load', function () {
 loginForm.addEventListener('submit', login)
 tripSubmissionForm.addEventListener('submit', displayCostOfTrip)
 // submitTravel.addEventListener('click', displayCostOfTrip)
-
 
 submitToTravelAgentButton.addEventListener('click', () => {
   submitTripRequest(potentialVacation)

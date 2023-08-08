@@ -29,7 +29,9 @@
           <div>
             <input type="submit" value="LOG IN" class="submit">
           </div>
-          <div class="invalid-login-message"></div>
+          <div class="invalid-login-message">
+            <!-- invalid login message will populate here -->
+          </div>
         </form>
       </section>
     </div>
@@ -57,11 +59,11 @@
       </section>
       <section class="right-side">
         <div class="traveler-inputs">
-          <h2>Inputs Here</h2>
+          <h2>Choose your Destination</h2>
           <form id="tripSubmission">
             <div>
               <label for="calendar">Select a Date<span aria-hidden="true">*</span></label>
-              <input type="date" name="calendar" id="calendar"  value aria-required="true"/>
+              <input type="date" name="calendar" id="calendar" min="today" value aria-required="true"/>
             </div>
             <div>
               <label for="duration">Enter Duration</label>
@@ -75,8 +77,8 @@
               <label for="destination">Choose a Destination</label>
               <select name="destination" id="destination"></select>
             </div>
-            <div>
-              <input type="submit" value="FORM See Estimate Cost" class="submit">
+            <div class="form-field">
+              <input type="submit" value="See Estimate Cost" class="submit">
               <!-- <button id="submitTravel" value="See Estimate Cost" class="submit">SEE ESTIMATE</button> -->
             </div>
           </form>

@@ -99,46 +99,14 @@ const displayYearlyExpense = () => {
  expenseThisYear.innerHTML = `Your total expense this year is : $${expense} in 2022`
 }
 
-// const displayCostOfTrip = (e) => {
-//   e.preventDefault();
-//   const formData = new FormData(e.target);
+const setCalendarMinDate = () => {
+  const startDate = new Date()
+  
+  const dateString = `${startDate.getFullYear()}-${('0' + (startDate.getMonth() + 1)).slice(-2)}-${('0' + startDate.getDate()).slice(-2)}`;
 
-//   const tripEstimation = {
-//     id: dataFromEndpoints.trips.trips[202].id + 1,
-//     calendar: formData.get('calendar'), 
-//     duration: formData.get('duration'),
-//     traveler_numbers: formData.get('traveler_numbers'),
-//     destination: destinationDropDown.options[destinationDropDown.selectedIndex].text,
-//     status: 'pending'
-//   };
+  calendarInput.setAttribute('min', dateString)
+}
 
-//   tripEstimationData = tripEstimation
-
-//   console.log('tripEstData', tripEstimationData)
-//   costOfTrip.innerHTML = `
-//     <p>Total Cost of Trip: $${getCostForTrip()}</p>
-//     <p>Date: ${tripEstimation.calendar}</p>
-//     <p>Duration: ${tripEstimation.duration}</p>
-//     <p>Traveler Numbers: ${tripEstimation.traveler_numbers}</p>
-//     <p>Destination: ${tripEstimation.destination}</p>
-//   `
-//   e.target.reset();
-//   destinationDropDown.selectedIndex = 0;
-// }
-
-
-// form.addEventListener('input', () => {
-//   if (numTravelersInput.value && durationInput.value) {
-   
-//     const totalCost = getCostOfDestination(
-//       parseInt(destinationDropdown.value),
-//       parseInt(numTravelersInput.value),
-//       parseInt(durationInput.value));
-//     let dollarUSLocale = Intl.NumberFormat('en-US');
-//     let totalPrice = dollarUSLocale.format(totalCost);
-//     estimatedCost.innerText = `The estimated cost of this trip is ${totalPrice}!`;
-//   };
-// });
 
 const getCostForTrip = (tripEstimationData) => {
   const destination = dataFromEndpoints.destinations.destinations.find(destination => destination.id === tripEstimationData.destination)
@@ -194,5 +162,6 @@ export {
   // submitTravel,
   potentialVacation,
   displayTravelerTrips,
-  displayStatus 
+  displayStatus,
+  setCalendarMinDate 
 }
