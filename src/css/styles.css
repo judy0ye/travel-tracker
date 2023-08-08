@@ -3,12 +3,12 @@ body {
   /* background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%); */
   background-image: url(../images/emmanuel-denier-YiXsjwJKXmo-unsplash.jpg);
   background-size: cover;
-  /* overflow-y: hidden; */
 }
 
 /* header */
 header {
-  background-color: rgb(43 43 43);
+  background-color: #2e3038;
+  ;
   width: 100vw;
   height: 25vh;
 }
@@ -86,7 +86,7 @@ color:antiquewhite;
 display: grid;
 height: 100vh;
 width: 100vw;
-grid-template-columns: 1fr 1fr;
+grid-template-columns: 1.3fr .7fr;
 grid-template-rows: 1fr;
 column-gap: 1em;
 grid-template-areas:
@@ -94,71 +94,96 @@ grid-template-areas:
 }
 
 .left-side {
-background-color: #333333;
-opacity: 90%;
+/* background-color: #333333; */
+
 grid-area: left-side;
+row-gap: 1em;
 margin-left: 2em;
-border: 5px solid blue;
+/* border: 5px solid blue; */
 display: grid;
 grid-template-columns: 1fr;
-grid-template-rows: 1.5fr .5fr;
+grid-template-rows: 1.6fr .4fr;
 grid-template-areas:
-"trip-info"
+"trip-info "
 "yearly-expense";
 overflow-y: hidden;
 }
 
 .right-side {
-background-color: #333333;
-opacity: 90%;
 grid-area: right-side;
 margin-right: 2em;
-border: 5px solid grey;
+row-gap: 1em;
 display: grid;
 grid-template-columns: 1fr;
-grid-template-rows: 1.4fr .6fr;
+grid-template-rows: 1.2fr .8fr;
 grid-template-areas:
 "traveler-inputs"
 "cost-estimation";
 overflow-y: hidden;
 }
 
+.traveler-inputs,
+.cost-estimation,
+.trip-info,
+.yearly-expense {
+  background-color: #2e3038;
+  border-radius: 35px 35px 35px 35px;
+  -moz-border-radius: 35px 35px 35px 35px;
+  -webkit-border-radius: 35px 35px 35px 35px;
+  border: 5px solid #939cab;
+  opacity: 95%;
+}
+
+
 .traveler-inputs {
   grid-area: traveler-inputs;
   display: flex;
-  border: 3px solid pink;
+ 
   overflow-y: scroll;
+  flex-direction: column;
+  align-items: center;
+ 
+}
+
+.cost-estimation {
+  grid-area: cost-estimation;
+  overflow-y: scroll;
+  display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.cost-estimation {
-grid-area: cost-estimation;
-border: 3px solid yellow;
-overflow-y: scroll;
-display: flex;
-flex-direction: column;
-align-items: center;
+.trip-cost-estimation {
+  display: flex;
+  flex-direction: column;
 }
 
 .trip-info {
-grid-area: trip-info;
-border: 3px solid pink;
-overflow-y: scroll;
-display: flex;
-flex-direction: column;
-align-items: center;
+  grid-area: trip-info;
+
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
+
+
 /* Hide scrollbar for Chrome, Safari and Opera */
+body::-webkit-scrollbar,
 .traveler-inputs::-webkit-scrollbar, 
-.trip-info::-webkit-scrollbar {
+.trip-info::-webkit-scrollbar,
+.cost-estimation::-webkit-scrollbar,
+.yearly-expense::-webkit-scrollbar {
   display: none;
 }
 
 /* Hide scrollbar for IE, Edge and Firefox */
+body,
 .traveler-inputs,
-.trip-info {
+.trip-info,
+.cost-estimation,
+.yearly-expense {
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
 }
@@ -170,12 +195,15 @@ align-items: center;
 }
 
 .yearly-expense {
+
 grid-area: yearly-expense;
-border: 3px solid greenyellow;
+
 overflow-y: scroll;
 display: flex;
 flex-direction: column;
 align-items: center;
+
+
 }
 
 /* #tripSubmission {
@@ -224,3 +252,4 @@ align-items: center;
 .hidden {
   display: none!important;
 }
+
