@@ -1,105 +1,76 @@
-# Webpack Starter Kit
+<div id="description" align="center">
 
-## Clone This Repo
+# Travel Tracker
 
-That's right, _clone_ not fork. You will use this repo multiple times, but you can only fork a repository once. So here is what you need to do to clone the repo and still be able to push changes to your repo:
 
-1. Clone down this repo. Since you don't want to name your project "webpack-starter-kit", you can use an optional argument when you run `git clone` (you replace the `[...]` with the terminal command arguments): `git clone [remote-address] [what you want to name the repo]`
-1. Remove the default remote: `git remote rm origin` (notice that `git remote -v` not gives you back nothing)
-1. Create a new repo on GitHub with the name of `[what you want to name the repo]` to be consistent with naming
-1. Copy the address that you would use to clone down this repo - something like `git@github.com:...`
-1. Add this remote to your cloned down repo: `git remote add origin [address you copied in the previous step]` - do not include the brackets
+##### Judy Ye
 
-Now try to commit something (just add a line in the README) and push it up to your new repo. If everything is setup correctly, you should see the changes on GitHub.
+[![LinkedIn](https://img.shields.io/badge/Judy-blue?style=for-the-badge&logo=LinkedIn&logoColor=black)](https://www.linkedin.com/in/judy-ye-742087279/)
 
-Testing: Is everything setup correctly?
-Yoda: Photo by <a href="https://unsplash.com/@sounce_cosplay?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Emmanuel Denier</a> on <a href="https://unsplash.com/photos/YiXsjwJKXmo?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
-  
-whtie storm trooper:
-Photo by <a href="https://unsplash.com/@sushioutlaw?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Brian McGowan</a> on <a href="https://unsplash.com/photos/itRfuFf1gdY?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
-  
-## Setup
 
-After one person has gone through the steps of cloning down this repo and editing the remote, everyone should clone down the repo.
 
-Then install the library dependencies. Run:
+## :pencil: Description
 
-```bash
-npm install
-```
+This application allows users to track and manage their trips. Users can book a trip by picking a date, duration, number of travelers, and a destination. They can also view their past expenses. 
 
-To verify that it is setup correctly, run `npm start` in your terminal. Go to `http://localhost:8080/` and you should see a page with the Turing logo image and a beautiful gradient background. If that's the case, you're good to go. Enter `control + c` in your terminal to stop the server at any time.
+</div>
 
-## Where to Add Your Code
+## 🎥: Preview
+<details open>
 
-### JavaScript
+![travel_tracker](https://github.com/judy0ye/travel-tracker/assets/129805348/e9c47850-e225-48a0-9bec-5415828cd46b)
 
-You have to be very intentional with where you add your feature code. This repo uses a tool called [webpack](https://webpack.js.org/) to combine many JavaScript files into one big file. Webpack enables you to have many, separate JavaScript files to keep your code organized and readable. Webpack expects all of your code files to be in a specific place, or else it doesn't know how to combine them all behind the scenes.
 
-**Create all of your feature code files in the `src` directory.**
+</details>
 
-Since code is separated into multiple files, you need to use the `import` and `export` syntax to share code across file.
+### Abstract:
+[//]: <> (Briefly describe what you built and its features. What problem is the app solving? How does this application solve that problem?)
+This application simulates a travel tracker, where users can book a trip by filling out a form. After reviewing the estimates of the trip, they can submit it to the agency for review. This application also allows users to look through their past trips and see their total expense per year.
 
-Here is a video that walks through some information about [import and export](https://www.youtube.com/watch?v=_3oSWwapPKQ). There are a lot of resources out there about `import` and `export`, and resources will sometimes call them `ES6 modules`. It's something you will see in React and beyond.
 
-### HTML
+### Installation Instructions:
+[//]: <> (What steps does a person have to take to get your app cloned down and running?)
+In order to use this project, please follow the steps below:
+- Fork this repository
+- Clone down the forked repository
+- CD into the repository 
+- Open the project in your chosen text editor
+- View and interact with the project by running NPM in your terminal and viewing the localhost live in your browswer
 
-Add the HTML you need in the `index.html` file in the `./dist` directory. There is some boilerplate HTML that exists from the start that you can modify.
+## 🏫 Context:
+[//]: <> (Give some context for the project here. How long did you have to work on it? How far into the Turing program are you?)
+I worked on it for approximately 45 hours and I am 12 weeks into Turing School of Software and Design's coding bootcamp.
 
-### Images
+### Contributors:
+[//]: <> (Who worked on this application? Link to their GitHubs.)
+Judy Ye: https://github.com/judy0ye
 
-Add your image files in the `src/images` directory. Similar to CSS files, you need to `import` image files in the JavaScript entry file (`scripts.js`). Then go into the HTML and add an `img` element with the `src` attribute pointing to the `images` directory. There is an example in the `index.html` file for you to see.
+## 📚 Learning Goals:
+[//]: <> (What were the learning goals of this project? What tech did you work with?)
+The learning goals include using array prototype methods to perform data manipulation, creating a clear and accesible user interface, making network requests, implemenint a robust testing suite using TDD and writing single responsibility principle code that's reusable. 
 
-## How to View Your Code in Action
+Visual Studio Code, Github, Chrome browser, along with the terminal command-line were used to complete this project.
 
-In the terminal, run:
+## 🖥️ Technologies Used
+![JavaScript](https://img.shields.io/badge/-JavaScript-05122A?style=flat&logo=javascript)
+![HTML](https://img.shields.io/badge/-HTML-05122A?style=flat&logo=html)
+![CSS](https://img.shields.io/badge/-CSS-05122A?style=flat&logo=css)
+![Github](https://img.shields.io/badge/-GitHub-05122A?style=flat&logo=github)
+![VSCode](https://img.shields.io/badge/-VS_Code-05122A?style=flat&logo=visualstudio)
+![Markdown](https://img.shields.io/badge/-Markdown-05122A?style=flat&logo=markdown)
+![Mocha](https://img.shields.io/badge/-Mocha-05122A?style=flat&logo=mocha)
+![Chai](https://img.shields.io/badge/-Chai-05122A?style=flat&logo=chai)
 
-```bash
-npm start
-```
 
-You will see a bunch of lines output to your terminal. One of those lines will be something like:
+## 🌱 Wins + Challenges:
+[//]: <> (What are 2-3 wins you have from this project? What were some challenges you faced - and how did you get over them?)
+Wins:
+- Buidling an application with accessibility in mind and impleteing network requests to send and retrieve data in a short amount of time is a win!
 
-```bash
-Project is running at http://localhost:8080/
-```
+Challenges:
+- Planning out how to execute and where to start was difficult, but once I was able to make a small part work, I began to build on top of that.
 
-Go to `http://localhost:8080/` in your browser to view your code running in the browser.
+## ℹ️ Source Credits:
+- Background Photo by <a href="https://unsplash.com/@sounce_cosplay?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Emmanuel Denier</a> on <a href="https://unsplash.com/photos/YiXsjwJKXmo?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
 
----
 
-## Test Files Organization
-
-Similar to feature code, your test code needs to be put in a specific place for it to run successfully.
-
-**Put all of your test files in the `test` directory.** As a convention, all test filenames should end with `-test.js`. For instance: `box-test.js`.
-
-## Running Your Tests
-
-Run your test suite using the command:
-
-```bash
-npm test
-```
-
-The test results will output to the terminal.
-
----
-
-## Linting Your Code
-
-Run the command in your terminal `npm run lint` to run the linter on your JavaScript code. There will be errors and warnings right from the start in this starter kit - the linter is still running successfully.
-
-Your linter will look at the JavaScript files you have within the `src` directory and the `test` directory.
-
-## Webpack?
-
-If you look in the `package.json` file, you'll see one of the library dependencies called `webpack`. If you're interested in learning more about what Webpack is and how it works behind the scenes, take a look through the [Webpack configuration documentation](https://webpack.js.org/concepts/).
-
-## Deploying to GitHub Pages
-
-_If you are finished with the functionality and testing of your project_, then you can consider deploying your project to the web! This way anyone can play it without cloning down your repo.
-
-[GitHub Pages](https://pages.github.com/) is a great way to deploy your project to the web. Don't worry about this until your project is free of bugs and well tested!
-
-If you _are_ done, you can follow [this procedure](./gh-pages-procedure.md) to get your project live on GitHub Pages.
