@@ -216,8 +216,6 @@ body,
   align-items: center;
 }
 
-
-
 .card-container {
   display: flex;
 }
@@ -269,7 +267,8 @@ body,
 	top:1px;
 }
 
-.submit-estimate {
+.submit-estimate,
+.submit {
   padding-bottom: 1.45em
 }
 

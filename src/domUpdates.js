@@ -45,7 +45,7 @@ const login = (e) => {
   const currentUser = /^traveler(\d+)$/;
   const match = userName.match(currentUser);
 
-  if (match && match[1] >= 1 && match[1] <= 51 && password === 'travel') {
+  if (match && match[1] >= 1 && match[1] <= 50 && password === 'travel') {
     const travelerId = parseInt(match[1]);
     const traveler = getTravelerById(travelerId, dataFromEndpoints.travelers);
     currentTraveler = traveler;
@@ -162,10 +162,8 @@ const getYearList = () => {
 
   const allTripYears = [...uniqueYears];
   allTripYears.sort((a, b) => b - a);
-  console.log(allTripYears);
 
   allTripYears.forEach((tripYear) => {
-    console.log('tripyr', tripYear);
     specificYearDropdown.innerHTML += `<option value="${tripYear}">${tripYear}</option>`;
   });
 };
@@ -237,7 +235,7 @@ const displaySuccessfulBooking = () => {
 
   setTimeout(() => {
     costOfTrip.innerHTML = '';
-  }, 2000);
+  }, 3000);
 
   submitToTravelAgentButton.classList.add('disable-button');
 };

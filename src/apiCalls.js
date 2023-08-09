@@ -9,7 +9,6 @@ const fetchFromEndPoints = endPointName => {
   return fetch(`http://localhost:3001/api/v1/${endPointName}`)
     .then(res => {
       if (!res.ok) {
-        console.log(`Request failed: ${res.status}`)
         return Promise.reject('Request failed: ', + res.status)
       }
       return res.json()
@@ -24,7 +23,6 @@ const fetchPromises = endPointNameList.map(endPoint => fetchFromEndPoints(endPoi
 
 // --------- POST request
 const submitTripRequest = (potentialVacation) => {
-  console.log('fromPost', potentialVacation)
   return fetch(`http://localhost:3001/api/v1/trips`, {
     method: 'POST',
     body: JSON.stringify(potentialVacation),
@@ -37,7 +35,8 @@ const submitTripRequest = (potentialVacation) => {
 export {
   fetchPromises,
   dataFromEndpoints,
-  submitTripRequest 
+  submitTripRequest,
+  fetchFromEndPoints 
 }
 
 

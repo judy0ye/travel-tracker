@@ -3,7 +3,8 @@
 import {
   fetchPromises,
   dataFromEndpoints,
-  submitTripRequest
+  submitTripRequest,
+  fetchFromEndPoints
 } from './apiCalls';
 
 import {
@@ -48,10 +49,16 @@ bookButton.addEventListener('click', onClickBook);
 submitToTravelAgentButton.addEventListener('click', () => {
   submitTripRequest(potentialVacation)
     .then((data) => {
-      newTripFromInput = data;
-      displayStatus(newTripFromInput);
+      if (data) {
+        newTripFromInput = data;
+      return fetchFromEndPoints(`trips`)
+      .then(() => { 
+        displayStatus(newTripFromInput); 
+      })}  
     })
     .catch((error) => console.error(`Error at ${error}`));
 });
 
 export { newTripFromInput };
+
+    
