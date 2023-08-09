@@ -3,8 +3,8 @@
 import {
   fetchPromises,
   dataFromEndpoints,
-  submitTripRequest 
-} from './apiCalls'
+  submitTripRequest
+} from './apiCalls';
 
 import {
   loginForm,
@@ -16,52 +16,42 @@ import {
   getDestinationList,
   bookButton,
   potentialVacation,
-  displayTravelerTrips,
   displayStatus,
   setCalendarMinDate,
   specificYearDropdown,
-  displayYearlyExpense,  
-} from './domUpdates'
+  displayYearlyExpense
+} from './domUpdates';
 
-import {
-  getAllDestination,
-} from '../src/utils'
-
-// An example of how you tell webpack to use a CSS (SCSS) file
+import './css/normalize.css';
 import './css/styles.css';
+import './images/turing-logo.png';
+import './images/emmanuel-denier-YiXsjwJKXmo-unsplash.jpg';
 
-// An example of how you tell webpack to use an image (also need to link to it in the index.html)
-import './images/turing-logo.png'
-
-let newTripFromInput
+// --------- global variable
+let newTripFromInput;
 
 // --------- event listeners
 window.addEventListener('load', function () {
   Promise.all(fetchPromises)
     .then(() => {
-      console.log('travelers: ', dataFromEndpoints.travelers);
-      console.log('trips: ', dataFromEndpoints.trips)
-      console.log('destinations: ', dataFromEndpoints.destinations)
-      getDestinationList() 
-      setCalendarMinDate()
+      getDestinationList();
+      setCalendarMinDate();
     })
-    .catch(error => console.log('Request failed from Promise.all', error))
-})
+    .catch((error) => console.log('Request failed from Promise.all', error));
+});
 
-loginForm.addEventListener('submit', login)
-specificYearDropdown.addEventListener('change', displayYearlyExpense)
-tripSubmissionForm.addEventListener('submit', displayCostOfTrip)
-bookButton.addEventListener('click', onClickBook)
+loginForm.addEventListener('submit', login);
+specificYearDropdown.addEventListener('change', displayYearlyExpense);
+tripSubmissionForm.addEventListener('submit', displayCostOfTrip);
+bookButton.addEventListener('click', onClickBook);
 
 submitToTravelAgentButton.addEventListener('click', () => {
   submitTripRequest(potentialVacation)
-  .then(data => {
-    newTripFromInput = data
-    displayStatus(newTripFromInput)
-  })
-  .catch(error => console.error(`Error at ${error}`))
-})
+    .then((data) => {
+      newTripFromInput = data;
+      displayStatus(newTripFromInput);
+    })
+    .catch((error) => console.error(`Error at ${error}`));
+});
 
-export {
-  newTripFromInput
-}
+export { newTripFromInput };
