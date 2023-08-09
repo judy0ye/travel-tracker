@@ -22,7 +22,9 @@ const loginForm = document.querySelector('#login-form')
 const tripSubmissionForm = document.querySelector('#trip-submission')
 const submitToTravelAgentButton = document.querySelector('#submit-to-travel-agent')
 const invalidLoginMessage = document.querySelector('.invalid-login-message')
-// const submitTravel = document.querySelector('#submitTravel')
+const bookButton = document.querySelector('.book-button')
+const bookTripSection = document.querySelector('.book-trip')
+const travelerInputSection = document.querySelector('.traveler-inputs')
 const loginSection = document.querySelector('.login-section')
 const pastTrips = document.querySelector('.past-trips')
 const pendingTrips = document.querySelector('.pending-trips')
@@ -88,6 +90,12 @@ const displayWelcomeMessage = () => {
     welcomeMessage.innerText = `Welcome ${currentTraveler.name}`
     dashboard.classList.remove('hidden')
   }
+}
+
+const onClickBook = () => {
+  bookTripSection.classList.add('hidden');
+  travelerInputSection.classList.remove('hidden')
+  costEsimationSection.classList.remove('hidden')
 }
 
 const displayTravelerTrips = (dataFromEndpoints) => {
@@ -180,7 +188,7 @@ const displayCostOfTrip = (e) => {
   <p>Traveler Numbers: ${tripEstimationData.numOfTravelers}</p>
   <p>Destination: ${matchingDestination.destination}</p>`
 
-  costEsimationSection.classList.remove('hidden')
+  
 
   e.target.reset();
   destinationDropDown.selectedIndex = 0
@@ -215,5 +223,7 @@ export {
   displayStatus,
   setCalendarMinDate,
   specificYearDropdown,
-  displayYearlyExpense 
+  displayYearlyExpense,
+  onClickBook,
+  bookButton 
 }

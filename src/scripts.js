@@ -11,15 +11,16 @@ import {
   tripSubmissionForm,
   login,
   submitToTravelAgentButton,
+  onClickBook,
   displayCostOfTrip,
   getDestinationList,
-  // submitTravel,
+  bookButton,
   potentialVacation,
   displayTravelerTrips,
   displayStatus,
   setCalendarMinDate,
   specificYearDropdown,
-  displayYearlyExpense  
+  displayYearlyExpense,  
 } from './domUpdates'
 
 import {
@@ -50,7 +51,7 @@ window.addEventListener('load', function () {
 loginForm.addEventListener('submit', login)
 specificYearDropdown.addEventListener('change', displayYearlyExpense)
 tripSubmissionForm.addEventListener('submit', displayCostOfTrip)
-// submitTravel.addEventListener('click', displayCostOfTrip)
+bookButton.addEventListener('click', onClickBook)
 
 submitToTravelAgentButton.addEventListener('click', () => {
   submitTripRequest(potentialVacation)
