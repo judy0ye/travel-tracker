@@ -1,106 +1,149 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Webpack Starter Kit</title>
-</head>
-<body>
-  <header>
-    <div class="header-container">
-      <section class="left-header">
-        <img src="./images/turing-logo.png" alt="turing logo" width="100">
-        <h1 id="headerTitle">The World Beyond Agency</h1>
-      </section>
-      <section class="login-section ">
-        <p class="welcome-message hidden">
-          <!-- traveler welcome message will populate here -->
-        </p>
-        <form class="login" id="login-form">
-          <div>
-            <label for="username">Enter Username</label>
-            <input placeholder="username" name="username" id="username"/>
-          </div>
-          <div>
-            <label for="password">Enter Password</label>
-            <input type="password" placeholder="password" name="password" id="password"/>
-          </div>
-          <div>
-            <input type="submit" value="LOG IN" class="submit">
-          </div>
-          <div class="invalid-login-message">
-            <!-- invalid login message will populate here -->
-          </div>
-        </form>
-      </section>
-    </div>
-  </header>
-  <main>
-    <div class="dashboard hidden" > 
-      <!-- add hidden class to dashboard -->
-      <section class="left-side">
-        <div class="trip-info">
-          <h2>Upcoming/Pending:</h2>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Webpack Starter Kit</title>
+  </head>
+  <body>
+    <header>
+      <div class="header-container">
+        <section class="left-header">
+          <img src="./images/turing-logo.png" alt="turing logo" width="100" />
+          <h1 id="headerTitle">The World Beyond Agency</h1>
+        </section>
+        <section class="login-section">
+          <p class="welcome-message hidden">
+            <!-- traveler welcome message will populate here -->
+          </p>
+          <form class="login" id="login-form">
+            <div>
+              <label for="username">Enter Username</label>
+              <input placeholder="username" name="username" id="username" />
+            </div>
+            <div>
+              <label for="password">Enter Password</label>
+              <input
+                type="password"
+                placeholder="password"
+                name="password"
+                id="password" />
+            </div>
+            <div>
+              <input type="submit" value="LOG IN" class="submit" />
+            </div>
+            <div class="invalid-login-message">
+              <!-- invalid login message will populate here -->
+            </div>
+          </form>
+        </section>
+      </div>
+    </header>
+    <main>
+      <div class="dashboard hidden">
+        <section class="left-side">
+          <div class="trip-info">
+            <h2>Upcoming/Pending:</h2>
             <section class="pending-trips">
               <!-- upcoming/pending trips will populate here -->
             </section>
-          <h2>Past/Approved:</h2>
-          <section class="past-trips">
-            <!-- past/approved trips will populate here -->
-          </section>
-        </div>
-        <div class="yearly-expense">
-          <h2>Yearly Expense</h2>
-          <section class="expense-this-year">
-            <label for="specific-year">Choose a Year</label>
-            <select name="specific-year" id="specific-year" aria-required="true"></select>
-            <section class="specific-year-expense">
-              <!-- yearly expense will populate here -->
-            </section>     
-          </section>
-        </div>
-      </section>
-      <section class="right-side">
-        <div class="traveler-inputs">
-          <h2>Choose your Destination</h2>
-          <form id="trip-submission">
-            <div>
-              <label for="calendar">Select a Date<span aria-hidden="true">*</span></label>
-              <input type="date" name="calendar" id="calendar" min="today" value aria-required="true"/>
-            </div>
-            <div>
-              <label for="duration">Enter Duration</label>
-              <input type="number" placeholder="duration" name="duration" id="duration" min="1" max="300,000,000" required value aria-required="true" aria-invalid="false" data-validate="notBlank"/>
-            </div>
-            <div>
-              <label for="traveler-numbers">Enter Number of Travelers</label>
-              <input type="number" placeholder="number of travelers" name="traveler-numbers" id="traveler-numbers" min="1" max="300,000,000" required value aria-required="true"/>
-            </div>
-            <div>
-              <label for="destination">Choose a Destination</label>
-              <select name="destination" id="destination" aria-required="true"></select>
-            </div>
-            <div class="form-submit">
-              <input type="submit" value="See Estimate Cost" class="submit">
-              <!-- <button id="submitTravel" value="See Estimate Cost" class="submit">SEE ESTIMATE</button> -->
-            </div>
-          </form>
-        </div>
-        <div class="cost-estimation hidden">
-          <h2>Cost Estimation</h2>
-          <section class="trip-cost-estimation">
-            <!-- cost estimation of trip will populate here -->
-          </section>
-          <button type="button" id="submit-to-travel-agent">Submit Trip</button>
-        </div>
-      </section>
-    </div>
-  </main>
- 
-  <!-- Do not include the scripts.js or class files here - it is done by the webpack server -->
-  <script src="bundle.js"></script>
+            <h2>Past/Approved:</h2>
+            <section class="past-trips">
+              <!-- past/approved trips will populate here -->
+            </section>
+          </div>
+          <div class="yearly-expense">
+            <h2>Yearly Expense</h2>
+            <section class="expense-this-year">
+              <label for="specific-year">Choose a Year</label>
+              <select
+                name="specific-year"
+                id="specific-year"
+                aria-required="true"></select>
+              <section class="specific-year-expense">
+                <!-- yearly expense will populate here -->
+              </section>
+            </section>
+          </div>
+        </section>
+        <section class="right-side">
+          <div class="book-trip">
+            <h2>Choose Your Adventure</h2>
+            <button class="book-button">Book a Trip</button>
+          </div>
+          <div class="traveler-inputs hidden">
+            <h2>Choose your Destination</h2>
+            <form id="trip-submission">
+              <div>
+                <label for="calendar"
+                  >Select a Date<span aria-hidden="true">*</span></label
+                >
+                <input
+                  type="date"
+                  name="calendar"
+                  id="calendar"
+                  value
+                  required
+                  aria-required="true" />
+              </div>
+              <div>
+                <label for="duration">Enter Duration in Days</label>
+                <input
+                  type="number"
+                  placeholder="duration"
+                  name="duration"
+                  id="duration"
+                  min="1"
+                  max="300,000,000"
+                  required
+                  value
+                  aria-required="true"
+                  aria-invalid="false"
+                  data-validate="notBlank" />
+              </div>
+              <div>
+                <label for="traveler-numbers">Enter Number of Travelers</label>
+                <input
+                  type="number"
+                  placeholder="number of travelers"
+                  name="traveler-numbers"
+                  id="traveler-numbers"
+                  min="1"
+                  max="300,000,000"
+                  required
+                  value
+                  aria-required="true" />
+              </div>
+              <div>
+                <label for="destination">Choose a Destination</label>
+                <select
+                  name="destination"
+                  id="destination"
+                  aria-required="true"></select>
+              </div>
+              <div class="form-submit">
+                <input
+                  type="submit"
+                  value="See Estimate Cost"
+                  class="submit-estimate" />
+              </div>
+            </form>
+          </div>
+          <div class="cost-estimation hidden">
+            <h2>Cost Estimation</h2>
+            <section class="trip-cost-estimation">
+              <!-- cost estimation of trip will populate here -->
+            </section>
+            <button type="button" id="submit-to-travel-agent">
+              Submit Trip
+            </button>
+          </div>
+        </section>
+      </div>
+    </main>
 
-</body>
+    <!-- Do not include the scripts.js or class files here - it is done by the webpack server -->
+    <script src="bundle.js"></script>
+  </body>
 </html>
-
