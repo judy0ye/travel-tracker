@@ -132,7 +132,6 @@ main {
 .traveler-inputs {
   grid-area: traveler-inputs;
   display: flex;
-
   overflow-y: scroll;
   flex-direction: column;
   align-items: center;
@@ -153,12 +152,12 @@ main {
 
 .trip-info {
   grid-area: trip-info;
-
   overflow-y: scroll;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
+
 
 /* Hide scrollbar for Chrome, Safari and Opera */
 body::-webkit-scrollbar,
@@ -202,17 +201,22 @@ body,
   flex-direction: column;
 }
 
-#trip-submission input {
+#trip-submission input,
+.login input {
   height: 1.5em;
+  border-radius: 5px;
 }
 
 #trip-submission select {
   height: 1.5em;
+  border-radius: 5px
 }
 
 .form-submit {
   align-items: center;
 }
+
+
 
 .card-container {
   display: flex;
@@ -238,22 +242,37 @@ body,
 #submit-to-travel-agent,
 .submit,
 .submit-estimate {
-  cursor: pointer;
-  box-shadow: 1px 1px 0px 0px #899599;
-  border-radius: 15px;
-  border: 2px solid #bdb7bd;
-  display: inline-block;
-  cursor: pointer;
-  color: #333333;
-  font-family: 'Poppins';
-  font-size: 1.4rem;
-  padding: 10px 28px;
-  text-decoration: none;
+	box-shadow: 1px 1px 3px 0px #899599;
+	background:linear-gradient(to bottom, #ededed 5%, #e1e3ed 100%);
+	background-color:#ededed;
+	border-radius:10px;
+	border:2px solid #899599;
+	display:inline-block;
+	cursor:pointer;
+	color:#333333;
+	font-family:Arial;
+	font-size:19px;
+	padding:6px 43px;
+	text-decoration:none;
+	text-shadow:0px 0px 0px #e1e2ed;
+}
+
+.book-button:hover,
+#submit-to-travel-agent:hover,
+.submit:hover,
+.submit-estimate:hover {
+	background:linear-gradient(to bottom, #e1e3ed 5%, #ededed 100%);
+	background-color:#e1e3ed;
+}
+.myButton:active {
+	position:relative;
+	top:1px;
 }
 
 .submit-estimate {
-  padding-bottom: 1.7em;
+  padding-bottom: 1.45em
 }
+
 #submit-to-travel-agent.disable-button,
 .submit.disable-button {
   background-color: #ededf3;
