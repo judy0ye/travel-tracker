@@ -162,7 +162,7 @@ const displayYearlyExpense = () => {
 const getYearList = () => {
   const uniqueYears = new Set();
 
-  const tripsByTraveler = dataFromEndpoints.trips.trips
+  dataFromEndpoints.trips.trips
     .filter((trip) => trip.userID === currentTraveler.id)
     .forEach((trip) => {
       const yearOnly = trip.date.split('/')[0];
