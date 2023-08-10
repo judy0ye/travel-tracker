@@ -19,7 +19,7 @@ const submitToTravelAgentButton = document.querySelector(
   '#submit-to-travel-agent'
 );
 const invalidLoginMessage = document.querySelector('.invalid-login-message');
-const loginButton = document.querySelector('.submit')
+const loginButton = document.querySelector('.submit');
 const bookButton = document.querySelector('.book-button');
 const bookTripSection = document.querySelector('.book-trip');
 const travelerInputSection = document.querySelector('.traveler-inputs');
@@ -53,7 +53,7 @@ const login = (e) => {
     loginForm.classList.add('hidden');
   } else {
     invalidLoginMessage.innerHTML = `<p>Please enter a valid username and/or password</p>`;
-    loginButton.classList.add('disable-button')
+    loginButton.classList.add('disable-button');
   }
 
   getYearList();
@@ -63,9 +63,10 @@ const login = (e) => {
 };
 
 const toggle = () => {
- if (loginButton.classList.contains('disable-button')) {
-  loginButton.classList.remove('disable-button')}
-}
+  if (loginButton.classList.contains('disable-button')) {
+    loginButton.classList.remove('disable-button');
+  }
+};
 
 const setCalendarMinDate = () => {
   const startDate = new Date();
@@ -101,7 +102,7 @@ const onClickBook = () => {
   bookTripSection.classList.add('hidden');
   travelerInputSection.classList.remove('hidden');
   costEsimationSection.classList.remove('hidden');
-  submitToTravelAgentButton.classList.add('disable-button')
+  submitToTravelAgentButton.classList.add('disable-button');
 };
 
 const displayTravelerTrips = (dataFromEndpoints) => {

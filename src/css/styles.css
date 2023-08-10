@@ -14,8 +14,7 @@ header {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr;
-  grid-template-areas: 
-  'left-header login-section';
+  grid-template-areas: 'left-header login-section';
 }
 
 .left-header {
@@ -23,7 +22,7 @@ header {
   background-color: #2e3038;
 }
 
-.left-header img, 
+.left-header img,
 .left-header h1 {
   margin-top: 10px;
   margin-left: 15px;
@@ -142,7 +141,7 @@ main {
   opacity: 95%;
 }
 
-.book-trip, 
+.book-trip,
 .traveler-inputs,
 .cost-estimation,
 .trip-info {
@@ -172,12 +171,11 @@ main {
 
 .trip-info {
   grid-area: trip-info;
-  
+
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-
 
 /* Style the scrollbar track */
 .trip-info::-webkit-scrollbar,
@@ -186,7 +184,7 @@ main {
 .cost-estimation::-webkit-scrollbar,
 .yearly-expense::-webkit-scrollbar {
   width: 10px;
-  border-radius: 45px 
+  border-radius: 45px;
 }
 
 /* Style the scrollbar thumb */
@@ -196,9 +194,8 @@ main {
 .cost-estimation::-webkit-scrollbar-thumb,
 .yearly-expense::-webkit-scrollbar-thumb {
   background-color: #939cab;
-  border-radius: 35px 600px 600px 35px; 
+  border-radius: 35px 600px 600px 35px;
 }
-
 
 /* Style the scrollbar track */
 .trip-info::-webkit-scrollbar-track,
@@ -213,13 +210,13 @@ main {
 
 /* Hide scrollbar for Chrome, Safari and Opera */
 body::-webkit-scrollbar {
-  display: none
+  display: none;
 }
 
 /* Hide scrollbar for IE, Edge and Firefox */
 body {
-  -ms-overflow-style: none; 
-  scrollbar-width: none; 
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
 .past-trips {
@@ -249,10 +246,9 @@ body {
   border-radius: 5px;
 }
 
-#trip-submission select
- {
+#trip-submission select {
   height: 1.5em;
-  border-radius: 5px
+  border-radius: 5px;
 }
 
 #specific-year {
@@ -279,7 +275,7 @@ body {
   align-items: center;
 }
 
-.trip-cards h3{
+.trip-cards h3 {
   font-size: 1.5rem;
 }
 
@@ -292,32 +288,32 @@ body {
 #submit-to-travel-agent,
 .submit,
 .submit-estimate {
-	box-shadow: 1px 1px 3px 0px #899599;
-	background:linear-gradient(to bottom, #ededed 5%, #e1e3ed 100%);
-	background-color:#ededed;
-	border-radius:10px;
-	border:2px solid #899599;
-	display:inline-block;
-	cursor:pointer;
-	color:#333333;
-	font-family:Arial;
-	font-size:19px;
-	padding:6px 43px;
-	text-decoration:none;
-	text-shadow:0px 0px 0px #e1e2ed;
+  box-shadow: 1px 1px 3px 0px #899599;
+  background: linear-gradient(to bottom, #ededed 5%, #e1e3ed 100%);
+  background-color: #ededed;
+  border-radius: 10px;
+  border: 2px solid #899599;
+  display: inline-block;
+  cursor: pointer;
+  color: #333333;
+  font-family: Arial;
+  font-size: 19px;
+  padding: 6px 43px;
+  text-decoration: none;
+  text-shadow: 0px 0px 0px #e1e2ed;
 }
 
 .book-button:hover,
 #submit-to-travel-agent:hover,
 .submit:hover,
 .submit-estimate:hover {
-	background:linear-gradient(to bottom, #e1e3ed 10%, #928e8e 100%);
-	background-color:#e1e3ed;
+  background: linear-gradient(to bottom, #e1e3ed 10%, #928e8e 100%);
+  background-color: #e1e3ed;
 }
 
 .submit-estimate,
 .submit {
-  padding-bottom: 1.45em
+  padding-bottom: 1.45em;
 }
 
 #submit-to-travel-agent.disable-button,
