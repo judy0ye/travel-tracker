@@ -11,7 +11,7 @@
 
 ## :pencil: Description
 
-This application allows users to track and manage their trips. Users can book a trip by picking a date, duration, number of travelers, and a destination. They can also view their past expenses. 
+This application allows users to track and manage their trips. Users can book a trip by picking a date, duration, number of travelers, and a destination. They can also view their past expenses by year. 
 
 </div>
 
@@ -25,17 +25,17 @@ This application allows users to track and manage their trips. Users can book a 
 
 ### Abstract:
 [//]: <> (Briefly describe what you built and its features. What problem is the app solving? How does this application solve that problem?)
-This application simulates a travel tracker, where users can book a trip by filling out a form. After reviewing the estimates of the trip, they can submit it to the agency for review. This application also allows users to look through their past trips and see their total expense per year.
+This application simulates a travel tracker, where users can book a trip by filling out a form. After reviewing the estimates of the trip, they can submit it to the agency for review. This application also allows users to look through their past trips and see their total expense per year. This project runs on a local server and interacts with API endpoints.
 
 
 ### Installation Instructions:
 [//]: <> (What steps does a person have to take to get your app cloned down and running?)
 In order to use this project, please follow the steps below:
 - Fork this repository
-- Clone down the forked repository
-- CD into the repository 
+- In the same folder, clone down both the forked repository and this [repository](https://github.com/turingschool-examples/travel-tracker-api)
+- CD into the both repositories on separate terminals and run ```npm install``` to download all the library dependencies
 - Open the project in your chosen text editor
-- View and interact with the project by running NPM in your terminal and viewing the localhost live in your browswer
+- View and interact with the project live by running ```npm start``` on both terminals and copy the localhost address http://localhost:8080/ to your web browser 
 
 ## 🏫 Context:
 [//]: <> (Give some context for the project here. How long did you have to work on it? How far into the Turing program are you?)
@@ -48,8 +48,6 @@ Judy Ye: https://github.com/judy0ye
 ## 📚 Learning Goals:
 [//]: <> (What were the learning goals of this project? What tech did you work with?)
 The learning goals include using array prototype methods to perform data manipulation, creating a clear and accesible user interface, making network requests, implemenint a robust testing suite using TDD and writing single responsibility principle code that's reusable. 
-
-Visual Studio Code, Github, Chrome browser, along with the terminal command-line were used to complete this project.
 
 ## 🖥️ Technologies Used
 ![JavaScript](https://img.shields.io/badge/-JavaScript-05122A?style=flat&logo=javascript)
