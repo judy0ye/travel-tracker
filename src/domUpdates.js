@@ -19,6 +19,7 @@ const submitToTravelAgentButton = document.querySelector(
   '#submit-to-travel-agent'
 );
 const invalidLoginMessage = document.querySelector('.invalid-login-message');
+const loginButton = document.querySelector('.submit');
 const bookButton = document.querySelector('.book-button');
 const bookTripSection = document.querySelector('.book-trip');
 const travelerInputSection = document.querySelector('.traveler-inputs');
@@ -45,19 +46,26 @@ const login = (e) => {
   const currentUser = /^traveler(\d+)$/;
   const match = userName.match(currentUser);
 
-  if (match && match[1] >= 1 && match[1] <= 51 && password === 'travel') {
+  if (match && match[1] >= 1 && match[1] <= 50 && password === 'travel') {
     const travelerId = parseInt(match[1]);
     const traveler = getTravelerById(travelerId, dataFromEndpoints.travelers);
     currentTraveler = traveler;
     loginForm.classList.add('hidden');
   } else {
     invalidLoginMessage.innerHTML = `<p>Please enter a valid username and/or password</p>`;
+    loginButton.classList.add('disable-button');
   }
 
   getYearList();
   displayWelcomeMessage();
   displayTravelerTrips(dataFromEndpoints);
   displayYearlyExpense();
+};
+
+const toggle = () => {
+  if (loginButton.classList.contains('disable-button')) {
+    loginButton.classList.remove('disable-button');
+  }
 };
 
 const setCalendarMinDate = () => {
@@ -94,6 +102,7 @@ const onClickBook = () => {
   bookTripSection.classList.add('hidden');
   travelerInputSection.classList.remove('hidden');
   costEsimationSection.classList.remove('hidden');
+  submitToTravelAgentButton.classList.add('disable-button');
 };
 
 const displayTravelerTrips = (dataFromEndpoints) => {
@@ -162,10 +171,8 @@ const getYearList = () => {
 
   const allTripYears = [...uniqueYears];
   allTripYears.sort((a, b) => b - a);
-  console.log(allTripYears);
 
   allTripYears.forEach((tripYear) => {
-    console.log('tripyr', tripYear);
     specificYearDropdown.innerHTML += `<option value="${tripYear}">${tripYear}</option>`;
   });
 };
@@ -237,7 +244,7 @@ const displaySuccessfulBooking = () => {
 
   setTimeout(() => {
     costOfTrip.innerHTML = '';
-  }, 2000);
+  }, 3000);
 
   submitToTravelAgentButton.classList.add('disable-button');
 };
@@ -257,5 +264,7 @@ export {
   specificYearDropdown,
   displayYearlyExpense,
   onClickBook,
-  bookButton
+  bookButton,
+  toggle,
+  loginButton
 };

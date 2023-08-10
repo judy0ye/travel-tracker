@@ -3,7 +3,8 @@
 import {
   fetchPromises,
   dataFromEndpoints,
-  submitTripRequest
+  submitTripRequest,
+  fetchFromEndPoints
 } from './apiCalls';
 
 import {
@@ -19,7 +20,9 @@ import {
   displayStatus,
   setCalendarMinDate,
   specificYearDropdown,
-  displayYearlyExpense
+  displayYearlyExpense,
+  toggle,
+  loginButton
 } from './domUpdates';
 
 import './css/normalize.css';
@@ -41,6 +44,7 @@ window.addEventListener('load', function () {
 });
 
 loginForm.addEventListener('submit', login);
+loginForm.addEventListener('input', toggle);
 specificYearDropdown.addEventListener('change', displayYearlyExpense);
 tripSubmissionForm.addEventListener('submit', displayCostOfTrip);
 bookButton.addEventListener('click', onClickBook);
@@ -48,10 +52,16 @@ bookButton.addEventListener('click', onClickBook);
 submitToTravelAgentButton.addEventListener('click', () => {
   submitTripRequest(potentialVacation)
     .then((data) => {
-      newTripFromInput = data;
-      displayStatus(newTripFromInput);
+      if (data) {
+        newTripFromInput = data;
+      return fetchFromEndPoints(`trips`)
+      .then(() => { 
+        displayStatus(newTripFromInput); 
+      })}  
     })
     .catch((error) => console.error(`Error at ${error}`));
 });
 
 export { newTripFromInput };
+
+    
