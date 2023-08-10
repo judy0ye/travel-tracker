@@ -11,7 +11,6 @@ header {
 }
 
 .header-container {
-  background-color: #2e3038;
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr;
@@ -21,9 +20,13 @@ header {
 
 .left-header {
   grid-area: left-header;
+  background-color: #2e3038;
 }
-.login-section {
-  grid-area: login-section
+
+.left-header img, 
+.left-header h1 {
+  margin-top: 10px;
+  margin-left: 15px;
 }
 
 #headerTitle,
@@ -38,6 +41,8 @@ header {
 }
 
 .login-section {
+  background-color: #2e3038;
+  grid-area: login-section;
   display: flex;
   align-items: flex-end;
   color: white;
@@ -216,9 +221,15 @@ body,
   border-radius: 5px;
 }
 
-#trip-submission select {
+#trip-submission select
+ {
   height: 1.5em;
   border-radius: 5px
+}
+
+#specific-year {
+  width: 7em;
+  text-align: center;
 }
 
 .form-submit {
@@ -268,12 +279,8 @@ body,
 #submit-to-travel-agent:hover,
 .submit:hover,
 .submit-estimate:hover {
-	background:linear-gradient(to bottom, #e1e3ed 5%, #ededed 100%);
+	background:linear-gradient(to bottom, #e1e3ed 10%, #928e8e 100%);
 	background-color:#e1e3ed;
-}
-.myButton:active {
-	position:relative;
-	top:1px;
 }
 
 .submit-estimate,

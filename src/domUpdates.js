@@ -94,6 +94,7 @@ const onClickBook = () => {
   bookTripSection.classList.add('hidden');
   travelerInputSection.classList.remove('hidden');
   costEsimationSection.classList.remove('hidden');
+  submitToTravelAgentButton.classList.add('disable-button')
 };
 
 const displayTravelerTrips = (dataFromEndpoints) => {
