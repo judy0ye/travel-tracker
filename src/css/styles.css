@@ -6,15 +6,24 @@ body {
 
 /* header */
 header {
-  background-color: #2e3038;
   width: 100vw;
   height: 25vh;
 }
 
 .header-container {
+  background-color: #2e3038;
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr;
+  grid-template-areas: 
+  'left-header login-section';
+}
+
+.left-header {
+  grid-area: left-header;
+}
+.login-section {
+  grid-area: login-section
 }
 
 #headerTitle,
