@@ -142,18 +142,24 @@ main {
   opacity: 95%;
 }
 
+.book-trip, 
+.traveler-inputs,
+.cost-estimation,
+.trip-info {
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
 .book-trip,
 .traveler-inputs {
   grid-area: traveler-inputs;
   display: flex;
-  overflow-y: scroll;
   flex-direction: column;
   align-items: center;
 }
 
 .cost-estimation {
   grid-area: cost-estimation;
-  overflow-y: scroll;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -166,32 +172,54 @@ main {
 
 .trip-info {
   grid-area: trip-info;
-  overflow-y: scroll;
+  
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
 
-/* Hide scrollbar for Chrome, Safari and Opera */
-body::-webkit-scrollbar,
+/* Style the scrollbar track */
+.trip-info::-webkit-scrollbar,
 .traveler-inputs::-webkit-scrollbar,
 .book-trip::-webkit-scrollbar,
-.trip-info::-webkit-scrollbar,
 .cost-estimation::-webkit-scrollbar,
 .yearly-expense::-webkit-scrollbar {
-  display: none;
+  width: 10px;
+  border-radius: 45px 
+}
+
+/* Style the scrollbar thumb */
+.trip-info::-webkit-scrollbar-thumb,
+.traveler-inputs::-webkit-scrollbar-thumb,
+.book-trip::-webkit-scrollbar-thumb,
+.cost-estimation::-webkit-scrollbar-thumb,
+.yearly-expense::-webkit-scrollbar-thumb {
+  background-color: #939cab;
+  border-radius: 35px 600px 600px 35px; 
+}
+
+
+/* Style the scrollbar track */
+.trip-info::-webkit-scrollbar-track,
+.traveler-inputs::-webkit-scrollbar-track,
+.book-trip::-webkit-scrollbar-track-track,
+.cost-estimation::-webkit-scrollbar-track,
+.yearly-expense::-webkit-scrollbar-track {
+  background-color: #f0f0f0;
+  border-radius: 35px 600px 600px 35px;
+  margin: 0.3em;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+body::-webkit-scrollbar {
+  display: none
 }
 
 /* Hide scrollbar for IE, Edge and Firefox */
-body,
-.traveler-inputs,
-.book-trip,
-.trip-info,
-.cost-estimation,
-.yearly-expense {
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
+body {
+  -ms-overflow-style: none; 
+  scrollbar-width: none; 
 }
 
 .past-trips {
@@ -202,7 +230,7 @@ body,
 
 .yearly-expense {
   grid-area: yearly-expense;
-  overflow-y: scroll;
+
   display: flex;
   flex-direction: column;
   align-items: center;
