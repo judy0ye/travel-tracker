@@ -19,6 +19,7 @@ const submitToTravelAgentButton = document.querySelector(
   '#submit-to-travel-agent'
 );
 const invalidLoginMessage = document.querySelector('.invalid-login-message');
+const loginButton = document.querySelector('.submit')
 const bookButton = document.querySelector('.book-button');
 const bookTripSection = document.querySelector('.book-trip');
 const travelerInputSection = document.querySelector('.traveler-inputs');
@@ -52,6 +53,7 @@ const login = (e) => {
     loginForm.classList.add('hidden');
   } else {
     invalidLoginMessage.innerHTML = `<p>Please enter a valid username and/or password</p>`;
+    loginButton.classList.add('disable-button')
   }
 
   getYearList();
@@ -59,6 +61,11 @@ const login = (e) => {
   displayTravelerTrips(dataFromEndpoints);
   displayYearlyExpense();
 };
+
+const toggle = () => {
+ if (loginButton.classList.contains('disable-button')) {
+  loginButton.classList.remove('disable-button')}
+}
 
 const setCalendarMinDate = () => {
   const startDate = new Date();
@@ -256,5 +263,7 @@ export {
   specificYearDropdown,
   displayYearlyExpense,
   onClickBook,
-  bookButton
+  bookButton,
+  toggle,
+  loginButton
 };

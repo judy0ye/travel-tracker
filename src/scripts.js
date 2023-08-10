@@ -20,7 +20,9 @@ import {
   displayStatus,
   setCalendarMinDate,
   specificYearDropdown,
-  displayYearlyExpense
+  displayYearlyExpense,
+  toggle,
+  loginButton
 } from './domUpdates';
 
 import './css/normalize.css';
@@ -42,6 +44,7 @@ window.addEventListener('load', function () {
 });
 
 loginForm.addEventListener('submit', login);
+loginForm.addEventListener('input', toggle);
 specificYearDropdown.addEventListener('change', displayYearlyExpense);
 tripSubmissionForm.addEventListener('submit', displayCostOfTrip);
 bookButton.addEventListener('click', onClickBook);
