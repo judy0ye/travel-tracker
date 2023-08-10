@@ -18,7 +18,7 @@ This application allows users to track and manage their trips. Users can book a 
 ## 🎥: Preview
 <details open>
 
-![travel_tracker](https://github.com/judy0ye/travel-tracker/assets/129805348/e9c47850-e225-48a0-9bec-5415828cd46b)
+![travel_tracker_update](https://github.com/judy0ye/travel-tracker/assets/129805348/9c0af2bc-828e-42ad-9845-aa960ea8feb9)
 
 
 </details>
