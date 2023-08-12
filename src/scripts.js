@@ -28,7 +28,7 @@ import {
 import './css/normalize.css';
 import './css/styles.css';
 import './images/turing-logo.png';
-import './images/emmanuel-denier-YiXsjwJKXmo-unsplash.jpg';
+import './images/astra-liu-pEZ9uGCEdF4-unsplash.jpg'
 
 // --------- global variable
 let newTripFromInput;
