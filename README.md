@@ -18,8 +18,7 @@ This application allows users to track and manage their trips. Users can book a 
 ## 🎥: Preview
 <details open>
 
-![travel_tracker_update](https://github.com/judy0ye/travel-tracker/assets/129805348/9c0af2bc-828e-42ad-9845-aa960ea8feb9)
-
+![travel_tracker](https://github.com/judy0ye/travel-tracker/assets/129805348/fef325e8-f6fa-4441-ab58-1d1cd9dfd49f)
 
 </details>
 
@@ -69,6 +68,5 @@ Challenges:
 - Planning out how to execute and where to start was difficult, but once I was able to make a small part work, I began to build on top of that.
 
 ## ℹ️ Source Credits:
-- Background Photo by <a href="https://unsplash.com/@sounce_cosplay?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Emmanuel Denier</a> on <a href="https://unsplash.com/photos/YiXsjwJKXmo?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
-
-
+- Background Photo by <a href="https://unsplash.com/@stardust123?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Astra Liu</a> on <a href="https://unsplash.com/photos/pEZ9uGCEdF4?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+  
