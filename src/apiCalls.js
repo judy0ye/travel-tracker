@@ -6,7 +6,7 @@ const endPointNameList = ['travelers', 'trips', 'destinations']
 
 // --------- GET request
 const fetchFromEndPoints = endPointName => {
-  return fetch(`http://localhost:3001/api/v1/${endPointName}`)
+  return fetch(`https://travel-tracker-9xj88ajhi-judy0ye.vercel.app/api/v1/${endPointName}`)
     .then(res => {
       if (!res.ok) {
         return Promise.reject('Request failed: ', + res.status)
@@ -23,7 +23,7 @@ const fetchPromises = endPointNameList.map(endPoint => fetchFromEndPoints(endPoi
 
 // --------- POST request
 const submitTripRequest = (potentialVacation) => {
-  return fetch(`http://localhost:3001/api/v1/trips`, {
+  return fetch(`https://travel-tracker-9xj88ajhi-judy0ye.vercel.app/api/v1/trips`, {
     method: 'POST',
     body: JSON.stringify(potentialVacation),
     headers:{ 'Content-Type': 'application/json' }
