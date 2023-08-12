@@ -166,10 +166,18 @@ main {
   align-items: center;
 }
 
-.trip-cost-estimation {
+.trip-cost-estimation div{
   display: flex;
-  flex-direction: column;
+  justify-content: space-between
 }
+.trip-cost-estimation div p{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0.35em 2em 0.35em;
+}
+
+
 
 .trip-info {
   grid-area: trip-info;
@@ -229,7 +237,6 @@ body {
 
 .yearly-expense {
   grid-area: yearly-expense;
-
   display: flex;
   flex-direction: column;
   align-items: center;

@@ -210,11 +210,11 @@ const displayCostOfTrip = (e) => {
   );
 
   costOfTrip.innerHTML = `
-  <p>Total Cost of Trip: $${getCostForTrip(tripEstimationData)}</p>
-  <p>Date: ${tripEstimationData.calendar}</p>
-  <p>Duration in Days: ${tripEstimationData.duration}</p>
-  <p>Traveler Numbers: ${tripEstimationData.numOfTravelers}</p>
-  <p>Destination: ${matchingDestination.destination}</p>`;
+  <div><p>Total Cost of Trip: </p><p>$${getCostForTrip(tripEstimationData)}</p></div>
+  <div> <p>Date:</p><p> ${tripEstimationData.calendar}</p></div>
+  <div><p>Duration in Days: </p><p>${tripEstimationData.duration}</p></div>
+  <div><p>Traveler Numbers: </p><p>${tripEstimationData.numOfTravelers}</p></div>
+  <div><p>Destination: </p><p>${matchingDestination.destination}</p></div>`;
 
   e.target.reset();
   destinationDropDown.selectedIndex = 0;
