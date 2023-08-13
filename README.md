@@ -2,6 +2,9 @@
 
 # Travel Tracker
 
+### [CLICK TO DEMO](https://judy0ye.github.io/travel-tracker/)
+<sup>*For the Demo: the username is 'traveler' followed by any number between 1-50 (ex. traveler15) and the password is 'travel'*</sup>
+
 
 ##### Judy Ye
 
@@ -34,7 +37,8 @@ In order to use this project, please follow the steps below:
 - In the same folder, clone down both the forked repository and this [repository](https://github.com/turingschool-examples/travel-tracker-api)
 - CD into the both repositories on separate terminals and run ```npm install``` to download all the library dependencies
 - Open the project in your chosen text editor
-- View and interact with the project live by running ```npm start``` on both terminals and copy the localhost address http://localhost:8080/ to your web browser 
+- View and interact with the project live by running ```npm start``` on both terminals and copy the localhost address http://localhost:8080/ to your web browser
+  - the username is 'traveler' followed by any number between 1-50 (ex. traveler15) and the password is 'travel'
 
 ## 🏫 Context:
 [//]: <> (Give some context for the project here. How long did you have to work on it? How far into the Turing program are you?)
